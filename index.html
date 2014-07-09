@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>GiniVision Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">GiniVision </a></h1>
+				<a id="developerHome" href="index.html">Gini GmbH</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">GiniVision Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">GiniVision Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>GiniVision Framework</h1>
+
+<p>The GiniVision Framework provides an augmented reality camera view that automatically recognizes documents and takes images thereof when the conditions are good. The resulting image is rectified and returned for further processing steps. The highest possible resolution is used in order to facilitate OCR processing on the captured images.</p>
+
+<h2>How it works</h2>
+
+<p>Frames from the camera are continuously processed (on a downscaled image) and checked for the presence of a document. A document can be of any aspect ratio, but the contrast to the background must be high enough (ideally a black background and a white document). For the shutter to take a high-resolution picture, the device needs to be positioned roughly parallel to the document and the document must almost fill the viewfinder. This is to ensure the highest document quality. The delegate method didProcessFrame:hasPoints:imageGoodEnough will inform you about the state of the recognition. <code>hasPoints</code> is true as soon as a document is detected. <code>imageGoodEnough</code> will be true if the document fills the viewfinder (e.g. the corners are within a 10% border of the camera view). Only if the both <code>hasPoints</code> and <code>imageGoodEnough</code> are true, then an image will be taken.</p>
+
+<p>Note that if you scan a document with an extreme aspect ratio, e.g. a receipt you have to make sure that either of the document edges are close to the viewfinder edge. In this case the top and the bottom edge. This is sufficient for the shutter to release. In other words, all 4 corner points need to be placed within proximity to the viewfinder border (~10 %). Where they are exactly does not matter.</p>
+
+<h2>Prerequisites</h2>
+
+<p>The GiniVision Framework requires iOS 7.0 or newer.</p>
+
+<h2>Installation</h2>
+
+<ul>
+<li>Drag the GiniVision.Framework to your project</li>
+<li>Drag the supplied opencv2.framework (version 2.4.8) to your project (or download it from <a href="http://sourceforge.net/projects/opencvlibrary/files/opencv-ios/">sourceforge.net</a>).</li>
+<li>Link the following libraries/frameworks to your target in Xcode&rsquo;s Build Phases:
+
+<ul>
+<li>libc++.dylib</li>
+<li>AssetsLibrary.framework</li>
+<li>CoreMedia.framework</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Quick Start - Integrate GiniVision into your app</h2>
+
+<p>Include the header file (it contains all needed dependencies)</p>
+
+<pre><code>#import &lt;GiniVision/GiniVision.h&gt;
+</code></pre>
+
+<p>Make your controller of your choice aware of the <a href="Protocols/CameraControllerDelegate.html">CameraControllerDelegate</a>:</p>
+
+<pre><code>@interface ViewController () CameraControllerDelegate {}
+@end
+</code></pre>
+
+<p>Create the following instance variables in your view controller, such that they will live during the time the view controller is shown</p>
+
+<pre><code>GINICameraController *_camera;
+IBOutlet GINICameraView *_cameraView;
+</code></pre>
+
+<p>If you don&rsquo;t use interface builder, you must now create an instance of the preview view by instantiating the <a href="Classes/GINICameraController.html">GINICameraController</a> (e.g. in <code>-(void)viewDidLoad</code>) and setting the delegate:</p>
+
+<pre><code>_camera = [[GINICameraController alloc] initWithPreviewView:(UIViewGINIPreviewView*)_cameraView];
+_camera.delegate = self;
+</code></pre>
+
+<p>If you use Interface Builder, connect your view to the *<em>cameraView IBOutlet. Please make sure that your </em>cameraView has set the proper Custom Class <code>GINICameraView</code> (in the Identity Inspector).</p>
+
+<h2>Customization</h2>
+
+<h3> Camera controller delegate methods</h3>
+
+<p>Implement the delegate methods according to your needs. E.g.</p>
+
+<ul>
+<li><code>-(void)didStartImageCapture</code></li>
+<li><code>-(void)didCaptureImage:image</code></li>
+<li><code>-(void)didProcessFrame:documentCorners:hasPoints:imageGoodEnough</code></li>
+<li><code>-(void)didAbortImageCapture</code></li>
+</ul>
+
+
+<h3>Visual Feedback</h3>
+
+<p>Many applications want to give instant feedback to the user that a document has been recognized. By setting the following properties</p>
+
+<pre><code>_cameraView.outlineColorDocumentDetected = [UIColor orangeColor];
+_cameraView.outlineColorWillCapture = [UIColor greenColor];
+</code></pre>
+
+<p>the document will be outlined in orange if it is recognized, and change to a green outline once all conditions are met and a picture will be taken subsequently.</p>
+
+<p>Another thing you might want to add is a &lsquo;flash&rsquo; animation. Add this to the <code>-didStartImageCapture</code> delegate method:</p>
+
+<pre><code>dispatch_async(dispatch_get_main_queue(), ^{
+    [_cameraView animateSnap];
+});
+</code></pre>
+
+<p>If you want to show the user HUD-style messages to help positioning the document correctly, you can use any UIView (here: _hudView) of your likes and use a logic such as the following to control the different states. Place it into the <code>-(void)didProcessFrame:...</code> delegate method.</p>
+
+<pre><code>dispatch_async(dispatch_get_main_queue(), ^{
+    if (hasPoints) {
+        if (imageGoodEnough) {
+            _hudView.text = @"Hold Still";
+        } else {
+            _hudView.text = @"Move closer";
+        }
+    } else {
+        _hudView.text = @"Place whole document into corners";
+        _hudView.hidden = NO;
+    }
+});
+</code></pre>
+
+<p>Keep in mind that displaying a HUD will not neccessarily help the user to hold the device in a favoruable orientation. We have performed extensive user testing for this part of the UX and our conclusion is that the users generally do not read the text on HUDs. A more useful approach is to have an onboarding in your app that shows the basic requirements for taking an image (contrast, device parallel to document, document fills viewfinder).</p>
+
+<h3>Frame capturing and processing</h3>
+
+<p>You can control the state of frame capturing (the live preview) and frame processing by setting <code>frameCapturing</code> or <code>frameProcessing</code> to true or false depending on your need. Generally it&rsquo;s a good idea to stop both as soon as you are done with your frame capturing process (e.g. in the <code>-(void)didCaptureImage:image</code> delegate method) since they use quite a bit of power and thus battery life of the device. Also, disabling the frame processing will prevent spurious shutter releases, that might otherwise happen by just holding the device.</p>
+
+<h1>License</h1>
+
+<p>The GiniVision iOS Framework is licensed under a commercial license. Copyright &copy; 2014, <a href="http://www.gini.net/">Gini GmbH</a>. Please see the LICENSE file for more details.</p>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/GINICameraController.html">GINICameraController</a></li>
+							
+							<li><a href="Classes/GINICameraView.html">GINICameraView</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+						<h2 class="index-title">Protocol References</h2>
+						<ul>
+							
+							<li><a href="Protocols/CameraControllerDelegate.html">CameraControllerDelegate</a></li>
+							
+							<li><a href="Protocols/GINIPreviewView.html">GINIPreviewView</a></li>
+							
+						</ul>
+						
+                        
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2014 Gini GmbH. All rights reserved. (Last updated: 2014-07-09)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>
