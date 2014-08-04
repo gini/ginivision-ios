@@ -1,4 +1,4 @@
 ginivision-ios
 ==============
 
-GiniVision iOS Framework
+This project is a placeholder to host the GiniVision iOS Framework Documentation.
