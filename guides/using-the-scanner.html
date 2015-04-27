@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using the Scanner &mdash; Gini API v1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic|Source+Code+Pro|Roboto+Slab:400,700" rel="stylesheet" type="text/css" />
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'../',
+        VERSION:'v1',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+    <script type="text/javascript">
+        jQuery(function () {
+            SphinxRtdTheme.StickyNav.enable();
+        });
+    </script>
+  
+
+  
+    <link rel="top" title="Gini API v1 documentation" href="../index.html"/>
+        <link rel="prev" title="Getting started" href="getting-started.html"/> 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" id="gini-logo">gini API</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#first-of-all-integrate-the-library">First of all: Integrate the library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#set-the-linker-settings">Set the linker settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#next-use-the-scanner-activity">Next: Use the Scanner Activity</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Using the Scanner</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#start-the-image-capture">Start the image capture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implement-and-use-the-ginivisiondelegate">Implement and use the <tt class="docutils literal"><span class="pre">GiniVisionDelegate</span></tt></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#didscan-uiimage-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate"><tt class="docutils literal"><span class="pre">didScan:(UIImage</span> <span class="pre">*)</span> <span class="pre">documentType:(GINIDocumentType)</span> <span class="pre">uploadDelegate:(id&lt;GINIUploadDelegate&gt;)</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#void-didscanoriginal-uiimage"><tt class="docutils literal"><span class="pre">(void)didScanOriginal:(UIImage</span> <span class="pre">*)</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#void-didfinishcapturing-bool"><tt class="docutils literal"><span class="pre">(void)didFinishCapturing:(BOOL)</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#use-the-giniuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIUploadDelegate</span></tt> to upload files and update the UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#void-didprogress-float-totalprogress"><tt class="docutils literal"><span class="pre">(void)didProgress:(float)totalProgress</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#void-didendupload"><tt class="docutils literal"><span class="pre">(void)didEndUpload</span></tt></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Gini API</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Using the Scanner</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="using-the-scanner">
+<span id="guide-using-the-scanner"></span><h1>Using the Scanner<a class="headerlink" href="#using-the-scanner" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="start-the-image-capture">
+<h2>Start the image capture<a class="headerlink" href="#start-the-image-capture" title="Permalink to this headline">¶</a></h2>
+<p>The image capturing is started with a single class method call on the <tt class="docutils literal"><span class="pre">GiniVision</span></tt> class. The
+document capturing then displays its own UI and your application&#8217;s UI is dismissed during the
+capturing process. The arguments to this method call are:</p>
+<ul class="simple">
+<li>The currently displayed view controller. Usually, this is the same view controller as the
+view controller which started the image capturing.</li>
+<li>An instance of an object that implements the <tt class="docutils literal"><span class="pre">GiniVisionDelegate</span></tt> protocol. This delegate is
+called during several steps of the image capturing and gets the results of the image capturing.</li>
+</ul>
+<p>The following example implements a callback for a touch event on a UIButton. In this callback, the
+image capturing is started.</p>
+<div class="highlight-obj-c"><div class="highlight"><pre><span class="cp">#import &lt;GiniVision/GiniVision.h&gt;</span>
+
+<span class="k">@implementation</span> <span class="nc">MyViewController</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">IBAction</span><span class="p">)</span> <span class="nf">scanDocument:</span><span class="p">(</span><span class="bp">UIButton</span> <span class="o">*</span><span class="p">)</span><span class="nv">sender</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">GiniVision</span> <span class="nl">captureImageWithViewController</span><span class="p">:</span><span class="nb">self</span> <span class="nl">delegate</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">@end</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You really have to call this method with the view controller that is currently
+displayed. If the given view controller isn&#8217;t displayed currently, the framework
+throws an error and your application will crash.</p>
+</div>
+</div>
+<div class="section" id="implement-and-use-the-ginivisiondelegate">
+<h2>Implement and use the <tt class="docutils literal"><span class="pre">GiniVisionDelegate</span></tt><a class="headerlink" href="#implement-and-use-the-ginivisiondelegate" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned above, the image capturing comes with a built-in UI and your application does not need
+to implement anything regarding the image capturing. However, you are usually interested in the
+results of the image capturing. The results of the image capturing process are given to your app via
+the <tt class="docutils literal"><span class="pre">GiniVisionDelegate</span></tt>. Therefore, you need to pass an object that implements this delegate to
+the image capture call (see the method call in the example above).</p>
+<div class="section" id="didscan-uiimage-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate">
+<h3><tt class="docutils literal"><span class="pre">didScan:(UIImage</span> <span class="pre">*)</span> <span class="pre">documentType:(GINIDocumentType)</span> <span class="pre">uploadDelegate:(id&lt;GINIUploadDelegate&gt;)</span></tt><a class="headerlink" href="#didscan-uiimage-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate" title="Permalink to this headline">¶</a></h3>
+<p>Will be called after a document has been captured with the document (cropped and enhanced) as
+argument. The given documentType argument describes the type of the scanned document. The receiver
+should upload the document and inform the given upload delegate so the UI is updated accordingly.
+See below to find out how to use the upload delegate.</p>
+<p>The first parameter is an UIImage instance containing the scanned document. The second argument is
+an enum that informs you which document type the user scanned. This can either be</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">GINIDocumentTypeInvoice</span></tt>: An invoice, usually in the DIN A4 format.</li>
+<li><tt class="docutils literal"><span class="pre">GINIDocumentTypeRemittance</span></tt>: A German remittance slip in the DIN A6 format</li>
+<li><tt class="docutils literal"><span class="pre">GINIDocumentTypeIntegratedRemittance</span></tt>: A document in the A4 format which contains a remittance
+slip.</li>
+</ul>
+</div>
+<div class="section" id="void-didscanoriginal-uiimage">
+<h3><tt class="docutils literal"><span class="pre">(void)didScanOriginal:(UIImage</span> <span class="pre">*)</span></tt><a class="headerlink" href="#void-didscanoriginal-uiimage" title="Permalink to this headline">¶</a></h3>
+<p>Will be called after a document has been captured with the original (that means not enhanced and
+not cropped) image as argument. Handy for debugging or analysis. It is not recommended to use this
+feature in production.</p>
+</div>
+<div class="section" id="void-didfinishcapturing-bool">
+<h3><tt class="docutils literal"><span class="pre">(void)didFinishCapturing:(BOOL)</span></tt><a class="headerlink" href="#void-didfinishcapturing-bool" title="Permalink to this headline">¶</a></h3>
+<p>Called after the image capturing UI has been dismissed. The given argument success indicates
+whether the user has captured a document or has canceled the document capturing.</p>
+</div>
+</div>
+<div class="section" id="use-the-giniuploaddelegate-to-upload-files-and-update-the-ui">
+<h2>Use the <tt class="docutils literal"><span class="pre">GINIUploadDelegate</span></tt> to upload files and update the UI<a class="headerlink" href="#use-the-giniuploaddelegate-to-upload-files-and-update-the-ui" title="Permalink to this headline">¶</a></h2>
+<p>Your application is responsible to upload the captured document, for example with the help of the
+<a class="reference external" href="http://developer.gini.net/gini-sdk-ios/">Gini SDK for iOS</a>. Nevertheless, the Gini Vision library
+displays an optimized and user-tested UI during the upload. When your application gets informed
+that a document is captured, it gets also an instance of the upload delegate. You can call several
+methods on this delegate in order to update the UI to reflect the current update status.</p>
+<div class="section" id="void-didprogress-float-totalprogress">
+<h3><tt class="docutils literal"><span class="pre">(void)didProgress:(float)totalProgress</span></tt><a class="headerlink" href="#void-didprogress-float-totalprogress" title="Permalink to this headline">¶</a></h3>
+<p>Call this method during the upload of the document to update the activity indicator of the upload
+UI accordingly.</p>
+</div>
+<div class="section" id="void-didendupload">
+<h3><tt class="docutils literal"><span class="pre">(void)didEndUpload</span></tt><a class="headerlink" href="#void-didendupload" title="Permalink to this headline">¶</a></h3>
+<p>Call this method after the upload of a document has been finished. It will make the photo
+capturing UI disappear and return to the screen of your UI from which the image capturing was
+started. After that, the <cite>didFinish:</cite> method of your application&#8217;s <cite>GiniVisionDelegate</cite> will be
+called.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="getting-started.html" class="btn btn-neutral" title="Getting started"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+</body>
+</html>

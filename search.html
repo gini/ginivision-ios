@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gini Vision documentation &mdash; Gini API v1 documentation</title>
+  <title>Search &mdash; Gini API v1 documentation</title>
   
 
   
@@ -31,6 +31,7 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/searchtools.js"></script>
 
     
 
@@ -52,8 +53,14 @@
   
 
   
-    <link rel="top" title="Gini API v1 documentation" href="#"/>
-        <link rel="next" title="Getting started" href="guides/getting-started.html"/> 
+    <link rel="top" title="Gini API v1 documentation" href="index.html"/>
+  <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+  </script>
+  
+  <script type="text/javascript" id="searchindexloader"></script>
+   
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
@@ -66,9 +73,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="#" id="gini-logo">gini API</a>
+        <a href="index.html" id="gini-logo">gini API</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="#" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -113,7 +120,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Gini API</a>
+        <a href="index.html">Gini API</a>
       </nav>
 
 
@@ -122,9 +129,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Gini Vision documentation</li>
+    <li></li>
       <li class="wy-breadcrumbs-aside">
         
       </li>
@@ -133,47 +140,22 @@
 </div>
           <div role="main">
             
-  <div class="section" id="gini-vision-documentation">
-<h1>Gini Vision documentation<a class="headerlink" href="#gini-vision-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Gini provides an information extraction system for analyzing documents (e. g. invoices or
-contracts), specifically information such as the document sender or the amount to pay in an invoice.</p>
-<p>The Gini Vision library for iOS provides functionality to capture documents with mobile phones running the iOS operating
-system. The captured images are automatically enhanced and optimized on the device so they provide both the
-best results when used with the Gini API and an optimized user experience.</p>
-</div>
-<div class="section" id="table-of-contents">
-<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="guides/getting-started.html">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guides/getting-started.html#first-of-all-integrate-the-library">First of all: Integrate the library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/getting-started.html#set-the-linker-settings">Set the linker settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/getting-started.html#next-use-the-scanner-activity">Next: Use the Scanner Activity</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="guides/using-the-scanner.html">Using the Scanner</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#start-the-image-capture">Start the image capture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#implement-and-use-the-ginivisiondelegate">Implement and use the <tt class="docutils literal"><span class="pre">GiniVisionDelegate</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#use-the-giniuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIUploadDelegate</span></tt> to upload files and update the UI</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
+  <noscript>
+  <div id="fallback" class="admonition warning">
+    <p class="last">
+      Please activate JavaScript to enable the search
+      functionality.
+    </p>
+  </div>
+  </noscript>
 
+  
+  <div id="search-results">
+  
+  </div>
 
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="guides/getting-started.html" class="btn btn-neutral float-right" title="Getting started">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-    </div>
   
 
   <hr/>

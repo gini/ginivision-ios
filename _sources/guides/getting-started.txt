@@ -1,0 +1,55 @@
+.. _guide-getting-started:
+
+===============
+Getting started
+===============
+
+The Gini Vision Library for iOS is shipped as a Cocoa touch framework. You must integrate the
+framework into your application before you can use it.
+
+First of all: Integrate the library
+===================================
+
+The library contains of three files:
+
+- The ``GiniVision.framework`` containing the library in a binary form.
+- The ``GiniVision.bundle`` containing all UI assets (images, storyboards, etc).
+- The ``opencv.framework`` containing a build of the third-party OpenCV library.
+
+It is absolutely necessary that you add all three files. Otherwise the framework and therefore
+your application may crash.
+
+To add the library to your application, simply drag the files from Finder and drop into your
+application's files (on the left side of XCode). There will appear a popup where you have to select
+the target. Make sure that you select the correct target (which is the target of your application).
+
+.. image:: ./xcode_target.png
+
+
+Set the linker settings
+=======================
+
+The Gini Vision library for iOS is written in Objective-C++, not in Objective-C. Because of that,
+you need to set a linker flag. Otherwise your application will not build due to linker errors. In
+the Build Settings of your application, you need to add the value ``-l"stdc++"``.
+
+.. image:: ./xcode_settings.png
+
+
+.. hint:: If you see "Apple Mach-O Linker Errors", for example "Undefined symbols for architecture x86_64"
+          it is very likely that you forgot to set the linker flag or set the linker flag incorrectly.
+
+
+Please make you sure that you also link all the needed iOS frameworks. You can check it in the
+"Linked Frameworks and Libraries" section in the General settings page of your applciation's target.
+
+The needed iOS frameworks are:
+
+* CoreMedia.Framework
+* AVFoundation.Framework
+
+Next: Use the Scanner Activity
+==============================
+
+After you have integrated the Gini Vision library for iOS successfully and your application you are
+good to go. Learn next :ref:`how to scan a document. <guide-using-the-scanner>`.
