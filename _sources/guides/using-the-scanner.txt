@@ -4,6 +4,7 @@
 Using the Scanner
 =================
 
+
 Start the image capture
 =======================
 
@@ -23,6 +24,10 @@ image capturing is started.
 
     #import <GiniVision/GiniVision.h>
 
+    @interface MyViewController () <GiniVisionDelegate>
+    - (IBAction) scanDocument:(UIButton *)sender;
+    @end
+
     @implementation MyViewController
 
     - (IBAction) scanDocument:(UIButton *)sender {
@@ -31,11 +36,11 @@ image capturing is started.
 
     @end
 
-
 .. warning:: You really have to call this method with the view controller that is currently
              displayed. If the given view controller isn't displayed currently, the framework
              throws an error and your application will crash.
 
+To switch back to your application's UI use the ``GINIVisionUploadDelegate`` as :ref:`described below <gini-vision-upload-delegate>`.
 
 Implement and use the ``GiniVisionDelegate``
 ============================================
@@ -45,7 +50,6 @@ to implement anything regarding the image capturing. However, you are usually in
 results of the image capturing. The results of the image capturing process are given to your app via
 the ``GiniVisionDelegate``. Therefore, you need to pass an object that implements this delegate to
 the image capture call (see the method call in the example above).
-
 
 ``didScan:(UIImage *) documentType:(GINIDocumentType) uploadDelegate:(id<GINIUploadDelegate>)``
 -----------------------------------------------------------------------------------------------
@@ -58,13 +62,12 @@ See below to find out how to use the upload delegate.
 The first parameter is an UIImage instance containing the scanned document. The second argument is
 an enum that informs you which document type the user scanned. This can either be
 
-- ``GINIDocumentTypeInvoice``: An invoice, usually in the DIN A4 format.
+* ``GINIDocumentTypeInvoice``: An invoice, usually in the DIN A4 format.
 
-- ``GINIDocumentTypeRemittance``: A German remittance slip in the DIN A6 format
+* ``GINIDocumentTypeRemittance``: A German remittance slip in the DIN A6 format
 
-- ``GINIDocumentTypeIntegratedRemittance``: A document in the A4 format which contains a remittance
+* ``GINIDocumentTypeIntegratedRemittance``: A document in the A4 format which contains a remittance
   slip.
-
 
 ``(void)didScanOriginal:(UIImage *)``
 -------------------------------------
@@ -72,14 +75,14 @@ Will be called after a document has been captured with the original (that means 
 not cropped) image as argument. Handy for debugging or analysis. It is not recommended to use this
 feature in production.
 
-
 ``(void)didFinishCapturing:(BOOL)``
 -----------------------------------
 Called after the image capturing UI has been dismissed. The given argument success indicates
 whether the user has captured a document or has canceled the document capturing.
 
+.. _gini-vision-upload-delegate:
 
-Use the ``GINIUploadDelegate`` to upload files and update the UI
+Use the ``GINIVisionUploadDelegate`` to upload files and update the UI
 ================================================================
 
 Your application is responsible to upload the captured document, for example with the help of the
@@ -88,16 +91,39 @@ displays an optimized and user-tested UI during the upload. When your applicatio
 that a document is captured, it gets also an instance of the upload delegate. You can call several
 methods on this delegate in order to update the UI to reflect the current update status.
 
-
 ``(void)didProgress:(float)totalProgress``
 ------------------------------------------
 Call this method during the upload of the document to update the activity indicator of the upload
-UI accordingly.
+UI accordingly. The parameter represents the progress in the upload process of the document on a scale from 0 to 1.
 
 ``(void)didEndUpload``
 ----------------------
-
 Call this method after the upload of a document has been finished. It will make the photo
 capturing UI disappear and return to the screen of your UI from which the image capturing was
 started. After that, the `didFinish:` method of your application's `GiniVisionDelegate` will be
 called.
+
+The following example is based on the example above and shows how to use the ``GINIVisionUploadDelegate`` after a document has been captured and enhanced.
+
+.. code-block:: obj-c
+
+    @implementation MyViewController
+
+    // Start image capturing and set delegate as seen above
+    - (IBAction) scanDocument:(UIButton *)sender {
+        [GiniVision captureImageWithViewController:self delegate:self];
+    }
+
+    // MARK: GiniVisionDelegate method
+    - (void)didScan:(UIImage *)document documentType:(GINIDocumentType)docType uploadDelegate:(id<GINIVisionUploadDelegate>)delegate {
+
+        /* Implement the Gini SDK for iOS or your custom upload to send the scanned and enhanced document to be processed. */
+
+        // Inform the delegate about the progress of the uploading process, so the UI gets updated properly.
+        [delegate didProgress:0.25];
+        // Inform the delegate that the upload ended, the UI is then switched back to your application's UI.
+        [delegate didEndUpload];     
+    }
+
+    @end
+

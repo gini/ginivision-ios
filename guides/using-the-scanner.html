@@ -81,7 +81,7 @@
         
             <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#first-of-all-integrate-the-library">First of all: Integrate the library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#integrate-the-library-and-frameworks">Integrate the library and frameworks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-started.html#set-the-linker-settings">Set the linker settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-started.html#next-use-the-scanner-activity">Next: Use the Scanner Activity</a></li>
 </ul>
@@ -94,7 +94,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#void-didfinishcapturing-bool"><tt class="docutils literal"><span class="pre">(void)didFinishCapturing:(BOOL)</span></tt></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#use-the-giniuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIUploadDelegate</span></tt> to upload files and update the UI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> to upload files and update the UI</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#void-didprogress-float-totalprogress"><tt class="docutils literal"><span class="pre">(void)didProgress:(float)totalProgress</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#void-didendupload"><tt class="docutils literal"><span class="pre">(void)didEndUpload</span></tt></a></li>
 </ul>
@@ -150,6 +150,10 @@ called during several steps of the image capturing and gets the results of the i
 image capturing is started.</p>
 <div class="highlight-obj-c"><div class="highlight"><pre><span class="cp">#import &lt;GiniVision/GiniVision.h&gt;</span>
 
+<span class="k">@interface</span> <span class="nc">MyViewController</span> <span class="p">()</span> <span class="o">&lt;</span><span class="n">GiniVisionDelegate</span><span class="o">&gt;</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">IBAction</span><span class="p">)</span> <span class="nl">scanDocument</span><span class="p">:(</span><span class="bp">UIButton</span> <span class="o">*</span><span class="p">)</span><span class="n">sender</span><span class="p">;</span>
+<span class="k">@end</span>
+
 <span class="k">@implementation</span> <span class="nc">MyViewController</span>
 
 <span class="p">-</span> <span class="p">(</span><span class="kt">IBAction</span><span class="p">)</span> <span class="nf">scanDocument:</span><span class="p">(</span><span class="bp">UIButton</span> <span class="o">*</span><span class="p">)</span><span class="nv">sender</span> <span class="p">{</span>
@@ -165,6 +169,7 @@ image capturing is started.</p>
 displayed. If the given view controller isn&#8217;t displayed currently, the framework
 throws an error and your application will crash.</p>
 </div>
+<p>To switch back to your application&#8217;s UI use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> as <a class="reference internal" href="#gini-vision-upload-delegate"><em>described below</em></a>.</p>
 </div>
 <div class="section" id="implement-and-use-the-ginivisiondelegate">
 <h2>Implement and use the <tt class="docutils literal"><span class="pre">GiniVisionDelegate</span></tt><a class="headerlink" href="#implement-and-use-the-ginivisiondelegate" title="Permalink to this headline">¶</a></h2>
@@ -200,8 +205,8 @@ feature in production.</p>
 whether the user has captured a document or has canceled the document capturing.</p>
 </div>
 </div>
-<div class="section" id="use-the-giniuploaddelegate-to-upload-files-and-update-the-ui">
-<h2>Use the <tt class="docutils literal"><span class="pre">GINIUploadDelegate</span></tt> to upload files and update the UI<a class="headerlink" href="#use-the-giniuploaddelegate-to-upload-files-and-update-the-ui" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">
+<span id="gini-vision-upload-delegate"></span><h2>Use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> to upload files and update the UI<a class="headerlink" href="#use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui" title="Permalink to this headline">¶</a></h2>
 <p>Your application is responsible to upload the captured document, for example with the help of the
 <a class="reference external" href="http://developer.gini.net/gini-sdk-ios/">Gini SDK for iOS</a>. Nevertheless, the Gini Vision library
 displays an optimized and user-tested UI during the upload. When your application gets informed
@@ -210,7 +215,7 @@ methods on this delegate in order to update the UI to reflect the current update
 <div class="section" id="void-didprogress-float-totalprogress">
 <h3><tt class="docutils literal"><span class="pre">(void)didProgress:(float)totalProgress</span></tt><a class="headerlink" href="#void-didprogress-float-totalprogress" title="Permalink to this headline">¶</a></h3>
 <p>Call this method during the upload of the document to update the activity indicator of the upload
-UI accordingly.</p>
+UI accordingly. The parameter represents the progress in the upload process of the document on a scale from 0 to 1.</p>
 </div>
 <div class="section" id="void-didendupload">
 <h3><tt class="docutils literal"><span class="pre">(void)didEndUpload</span></tt><a class="headerlink" href="#void-didendupload" title="Permalink to this headline">¶</a></h3>
@@ -218,6 +223,28 @@ UI accordingly.</p>
 capturing UI disappear and return to the screen of your UI from which the image capturing was
 started. After that, the <cite>didFinish:</cite> method of your application&#8217;s <cite>GiniVisionDelegate</cite> will be
 called.</p>
+<p>The following example is based on the example above and shows how to use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> after a document has been captured and enhanced.</p>
+<div class="highlight-obj-c"><div class="highlight"><pre><span class="k">@implementation</span> <span class="nc">MyViewController</span>
+
+<span class="c1">// Start image capturing and set delegate as seen above</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">IBAction</span><span class="p">)</span> <span class="nf">scanDocument:</span><span class="p">(</span><span class="bp">UIButton</span> <span class="o">*</span><span class="p">)</span><span class="nv">sender</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">GiniVision</span> <span class="nl">captureImageWithViewController</span><span class="p">:</span><span class="nb">self</span> <span class="nl">delegate</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="c1">// MARK: GiniVisionDelegate method</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didScan:</span><span class="p">(</span><span class="bp">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nv">document</span> <span class="nf">documentType:</span><span class="p">(</span><span class="n">GINIDocumentType</span><span class="p">)</span><span class="nv">docType</span> <span class="nf">uploadDelegate:</span><span class="p">(</span><span class="kt">id</span><span class="o">&lt;</span><span class="n">GINIVisionUploadDelegate</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span> <span class="p">{</span>
+
+    <span class="cm">/* Implement the Gini SDK for iOS or your custom upload to send the scanned and enhanced document to be processed. */</span>
+
+    <span class="c1">// Inform the delegate about the progress of the uploading process, so the UI gets updated properly.</span>
+    <span class="p">[</span><span class="n">delegate</span> <span class="nl">didProgress</span><span class="p">:</span><span class="mf">0.25</span><span class="p">];</span>
+    <span class="c1">// Inform the delegate that the upload ended, the UI is then switched back to your application&#39;s UI.</span>
+    <span class="p">[</span><span class="n">delegate</span> <span class="n">didEndUpload</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">@end</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>

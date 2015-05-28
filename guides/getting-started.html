@@ -82,7 +82,7 @@
         
             <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#first-of-all-integrate-the-library">First of all: Integrate the library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integrate-the-library-and-frameworks">Integrate the library and frameworks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#set-the-linker-settings">Set the linker settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#next-use-the-scanner-activity">Next: Use the Scanner Activity</a></li>
 </ul>
@@ -95,7 +95,7 @@
 <li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#void-didfinishcapturing-bool"><tt class="docutils literal"><span class="pre">(void)didFinishCapturing:(BOOL)</span></tt></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="using-the-scanner.html#use-the-giniuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIUploadDelegate</span></tt> to upload files and update the UI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using-the-scanner.html#use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> to upload files and update the UI</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#void-didprogress-float-totalprogress"><tt class="docutils literal"><span class="pre">(void)didProgress:(float)totalProgress</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#void-didendupload"><tt class="docutils literal"><span class="pre">(void)didEndUpload</span></tt></a></li>
 </ul>
@@ -138,9 +138,9 @@
 <span id="guide-getting-started"></span><h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <p>The Gini Vision Library for iOS is shipped as a Cocoa touch framework. You must integrate the
 framework into your application before you can use it.</p>
-<div class="section" id="first-of-all-integrate-the-library">
-<h2>First of all: Integrate the library<a class="headerlink" href="#first-of-all-integrate-the-library" title="Permalink to this headline">¶</a></h2>
-<p>The library contains of three files:</p>
+<div class="section" id="integrate-the-library-and-frameworks">
+<h2>Integrate the library and frameworks<a class="headerlink" href="#integrate-the-library-and-frameworks" title="Permalink to this headline">¶</a></h2>
+<p>The library consists of three files:</p>
 <ul class="simple">
 <li>The <tt class="docutils literal"><span class="pre">GiniVision.framework</span></tt> containing the library in a binary form.</li>
 <li>The <tt class="docutils literal"><span class="pre">GiniVision.bundle</span></tt> containing all UI assets (images, storyboards, etc).</li>
@@ -148,23 +148,11 @@ framework into your application before you can use it.</p>
 </ul>
 <p>It is absolutely necessary that you add all three files. Otherwise the framework and therefore
 your application may crash.</p>
-<p>To add the library to your application, simply drag the files from Finder and drop into your
+<p>To add the library to your application, simply drag the files from Finder and drop them into your
 application&#8217;s files (on the left side of XCode). There will appear a popup where you have to select
-the target. Make sure that you select the correct target (which is the target of your application).</p>
+the target. Make sure that you select the correct target (which is the target of your application) and that &#8220;Copy items if needed&#8221; is checked.</p>
 <img alt="../_images/xcode_target.png" src="../_images/xcode_target.png" />
-</div>
-<div class="section" id="set-the-linker-settings">
-<h2>Set the linker settings<a class="headerlink" href="#set-the-linker-settings" title="Permalink to this headline">¶</a></h2>
-<p>The Gini Vision library for iOS is written in Objective-C++, not in Objective-C. Because of that,
-you need to set a linker flag. Otherwise your application will not build due to linker errors. In
-the Build Settings of your application, you need to add the value <tt class="docutils literal"><span class="pre">-l&quot;stdc++&quot;</span></tt>.</p>
-<img alt="../_images/xcode_settings.png" src="../_images/xcode_settings.png" />
-<div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<p class="last">If you see &#8220;Apple Mach-O Linker Errors&#8221;, for example &#8220;Undefined symbols for architecture x86_64&#8221;
-it is very likely that you forgot to set the linker flag or set the linker flag incorrectly.</p>
-</div>
-<p>Please make you sure that you also link all the needed iOS frameworks. You can check it in the
+<p>Also make you sure that you linked all the needed iOS frameworks. You can check it in the
 &#8220;Linked Frameworks and Libraries&#8221; section in the General settings page of your applciation&#8217;s target.</p>
 <p>The needed iOS frameworks are:</p>
 <ul class="simple">
@@ -172,10 +160,22 @@ it is very likely that you forgot to set the linker flag or set the linker flag 
 <li>AVFoundation.Framework</li>
 </ul>
 </div>
+<div class="section" id="set-the-linker-settings">
+<h2>Set the linker settings<a class="headerlink" href="#set-the-linker-settings" title="Permalink to this headline">¶</a></h2>
+<p>The Gini Vision library for iOS is written in Objective-C++, not in Objective-C. Because of that,
+you need to set a linker flag. Otherwise your application will not build due to linker errors. In
+the Build Settings of your application, you need to add the value <tt class="docutils literal"><span class="pre">-l&quot;stdc++&quot;</span></tt> to &#8220;Other Linker Flags&#8221; in the Linking section.</p>
+<img alt="../_images/xcode_settings.png" src="../_images/xcode_settings.png" />
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">If you see &#8220;Apple Mach-O Linker Errors&#8221;, for example &#8220;Undefined symbols for architecture x86_64&#8221;
+it is very likely that you forgot to set the linker flag or set the linker flag incorrectly.</p>
+</div>
+</div>
 <div class="section" id="next-use-the-scanner-activity">
 <h2>Next: Use the Scanner Activity<a class="headerlink" href="#next-use-the-scanner-activity" title="Permalink to this headline">¶</a></h2>
-<p>After you have integrated the Gini Vision library for iOS successfully and your application you are
-good to go. Learn next <a class="reference internal" href="using-the-scanner.html#guide-using-the-scanner"><em>how to scan a document.</em></a>.</p>
+<p>After you have integrated the Gini Vision library for iOS and your application build successfully you are
+good to go. Learn next <a class="reference internal" href="using-the-scanner.html#guide-using-the-scanner"><em>how to scan a document</em></a>.</p>
 </div>
 </div>
 
