@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuring the Module &mdash; Gini Vision SDK for iOS 1.1.7 documentation</title>
+  
+
+  
+  
+
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic|Source+Code+Pro|Roboto+Slab:400,700" rel="stylesheet" type="text/css" />
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'../',
+        VERSION:'1.1.7',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+    <script type="text/javascript">
+        jQuery(function () {
+            SphinxRtdTheme.StickyNav.enable();
+        });
+    </script>
+  
+
+  
+    <link rel="top" title="Gini Vision SDK for iOS 1.1.7 documentation" href="../index.html"/>
+        <link rel="prev" title="Using the Scanner" href="using-the-scanner.html"/> 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" id="gini-logo">gini API</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#integrate-the-library-and-frameworks">Integrate the library and frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#set-the-linker-settings">Set the linker settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#next-use-the-scanner-activity">Next: Use the Scanner Activity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using-the-scanner.html">Using the Scanner</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using-the-scanner.html#start-the-image-capture">Start the image capture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-the-scanner.html#implement-and-use-the-ginivisiondelegate">Implement and use the <tt class="docutils literal"><span class="pre">GiniVisionDelegate</span></tt></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#didscan-uiimage-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate"><tt class="docutils literal"><span class="pre">didScan:(UIImage</span> <span class="pre">*)</span> <span class="pre">documentType:(GINIDocumentType)</span> <span class="pre">uploadDelegate:(id&lt;GINIUploadDelegate&gt;)</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#void-didscanoriginal-uiimage"><tt class="docutils literal"><span class="pre">(void)didScanOriginal:(UIImage</span> <span class="pre">*)</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#void-didfinishcapturing-bool"><tt class="docutils literal"><span class="pre">(void)didFinishCapturing:(BOOL)</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="using-the-scanner.html#use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> to upload files and update the UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#void-didprogress-float-totalprogress"><tt class="docutils literal"><span class="pre">(void)didProgress:(float)totalProgress</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#void-didendupload"><tt class="docutils literal"><span class="pre">(void)didEndUpload</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="using-the-scanner.html#next-customize-the-ui">Next: Customize the UI</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Configuring the Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#screen-resources">Screen Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#camera-screen">Camera Screen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#help-screen">Help Screen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#use-the-giniconfiguration-to-customize-look-and-behaviour-of-the-module">Use the <tt class="docutils literal"><span class="pre">GiniConfiguration</span></tt> to customize look and behaviour of the module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#colors">Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fonts">Fonts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Gini Vision SDK for iOS</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Configuring the Module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="configuring-the-module">
+<span id="guide-style-the-module"></span><h1>Configuring the Module<a class="headerlink" href="#configuring-the-module" title="Permalink to this headline">¶</a></h1>
+<p>The Gini iOS Vision library is built with the option to adopt the styling regarding the needs of your CI. Therefore the UI ressources used by the Gini iOS Vision library can be replaced or customized. Furthermore specific options are given to change the behaviour of the Gini iOS Vision library.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All configurations are optional. The Gini iOS Vision library will work out of the box with no configuration.</p>
+</div>
+<div class="section" id="screen-resources">
+<h2>Screen Resources<a class="headerlink" href="#screen-resources" title="Permalink to this headline">¶</a></h2>
+<p>You can replace the images used by the library simply by replacing images in the <tt class="docutils literal"><span class="pre">GiniVision.bundle</span></tt> with the exact same resolution and name. Keep in mind to always replace all three variants (&#64;1x, &#64;2x and &#64;3x) of an image. The following list will show which image is used on which screen.</p>
+<div class="section" id="camera-screen">
+<h3>Camera Screen<a class="headerlink" href="#camera-screen" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">camera_screen_corners_invoice_a4remittance.png</span></tt>, corners for invoice or integrated remittance slip</li>
+<li><tt class="docutils literal"><span class="pre">camera_screen_corners_remittance.png</span></tt>, corners for remittance slip</li>
+<li><tt class="docutils literal"><span class="pre">messages_nahe_ran.png</span></tt>, move closer message</li>
+<li><tt class="docutils literal"><span class="pre">messages_nicht_bewegen.png</span></tt>, hold device still message</li>
+</ul>
+</div>
+<div class="section" id="help-screen">
+<h3>Help Screen<a class="headerlink" href="#help-screen" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">help_screen_1_invoice.png</span></tt>, first help image</li>
+<li><tt class="docutils literal"><span class="pre">help_screen_2_richtig.png</span></tt>, second help image (right)</li>
+<li><tt class="docutils literal"><span class="pre">help_screen_2_falsch.png</span></tt>, second help image (wrong)</li>
+<li><tt class="docutils literal"><span class="pre">help_screen_3_richtig.png</span></tt>, third help image (right)</li>
+<li><tt class="docutils literal"><span class="pre">help_screen_3_falsch.png</span></tt>, third help image (wrong)</li>
+<li><tt class="docutils literal"><span class="pre">help_screen_4_richtig.png</span></tt>, fourth help image (right)</li>
+<li><tt class="docutils literal"><span class="pre">help_screen_4_falsch.png</span></tt>, fourth help image (wrong)</li>
+</ul>
+<p>Don&#8217;t forget to add the respective multiplier at the end of an image file name, e.g. <tt class="docutils literal"><span class="pre">help_screen_1_invoice&#64;2x.png</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="use-the-giniconfiguration-to-customize-look-and-behaviour-of-the-module">
+<h2>Use the <tt class="docutils literal"><span class="pre">GiniConfiguration</span></tt> to customize look and behaviour of the module<a class="headerlink" href="#use-the-giniconfiguration-to-customize-look-and-behaviour-of-the-module" title="Permalink to this headline">¶</a></h2>
+<p>To configure colors, fonts and more options the Gini iOS Vision library provides a <tt class="docutils literal"><span class="pre">GiniConfiguration</span></tt>. In order to start the scanner with your own configuration call <tt class="docutils literal"><span class="pre">captureImageWithViewController:delegate:configuration:</span></tt> on the <tt class="docutils literal"><span class="pre">GiniVision</span></tt> class. The following properties can be configured.</p>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">launchDocumentType</span></tt> of type <tt class="docutils literal"><span class="pre">GINIDocumentType</span></tt> skips the choice screen if it is different from <tt class="docutils literal"><span class="pre">GINIDocumentTypeDefault</span></tt> and starts the scanner with the provided document type.</li>
+<li><tt class="docutils literal"><span class="pre">showHelp</span></tt> of type <tt class="docutils literal"><span class="pre">BOOL</span></tt> shows the help screen directly after starting the Gini iOS Vision library.</li>
+</ul>
+</div>
+<div class="section" id="colors">
+<h3>Colors<a class="headerlink" href="#colors" title="Permalink to this headline">¶</a></h3>
+<p>All colors are of type <tt class="docutils literal"><span class="pre">UIColor</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">navigationTintColor</span></tt> sets tint color of the navigation bar and the background of all regular buttons.</li>
+<li><tt class="docutils literal"><span class="pre">lightFontColor</span></tt> sets light font color.</li>
+<li><tt class="docutils literal"><span class="pre">darkFontColor</span></tt> sets dark font color, it is used for regular text.</li>
+<li><tt class="docutils literal"><span class="pre">actionFontColor</span></tt> will be used in the future to highlight specific text.</li>
+</ul>
+</div>
+<div class="section" id="fonts">
+<h3>Fonts<a class="headerlink" href="#fonts" title="Permalink to this headline">¶</a></h3>
+<p>All fonts are of type <tt class="docutils literal"><span class="pre">UIFont</span></tt>. Therefore size and font family can be set.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">navigationFont</span></tt> sets font for all elements in the navigation bar.</li>
+<li><tt class="docutils literal"><span class="pre">textFont</span></tt> sets font for regular text e.g. text below help images.</li>
+<li><tt class="docutils literal"><span class="pre">buttonFont</span></tt> sets font for regular button titles.</li>
+</ul>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>The example considers the same structure <a class="reference internal" href="using-the-scanner.html#guide-using-the-scanner"><em>shown previously</em></a>.
+It shows all possible configurations and their <strong>default values</strong>.</p>
+<div class="highlight-obj-c"><div class="highlight"><pre><span class="k">@implementation</span> <span class="nc">MyViewController</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">IBAction</span><span class="p">)</span> <span class="nf">scanDocument:</span><span class="p">(</span><span class="bp">UIButton</span> <span class="o">*</span><span class="p">)</span><span class="nv">sender</span> <span class="p">{</span>
+    <span class="n">GiniConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[</span><span class="n">GiniConfiguration</span> <span class="n">new</span><span class="p">];</span>
+
+    <span class="c1">// Options</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">launchDocumentType</span> <span class="o">=</span> <span class="n">GINIDocumentTypeDefault</span><span class="p">;</span> <span class="c1">// Remember &#39;GINIDocumentTypeDefault&#39; does NOT skip the choice screen.</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">showHelp</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+
+    <span class="c1">// Colors</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">navigationTintColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:(</span><span class="mi">28</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">green</span><span class="p">:(</span><span class="mi">141</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">blue</span><span class="p">:(</span><span class="mi">214</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">lightFontColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">green</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">blue</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">darkFontColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:(</span><span class="mi">76</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">green</span><span class="p">:(</span><span class="mi">76</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">blue</span><span class="p">:(</span><span class="mi">76</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">actionFontColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:(</span><span class="mi">28</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">green</span><span class="p">:(</span><span class="mi">141</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">blue</span><span class="p">:(</span><span class="mi">214</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];</span>
+
+    <span class="c1">// Fonts</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">navigationFont</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIFont</span> <span class="nl">fontWithName</span><span class="p">:</span><span class="s">@&quot;HelveticaNeue-Light&quot;</span> <span class="nl">size</span><span class="p">:</span><span class="mf">16.0</span><span class="p">];</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">textFont</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIFont</span> <span class="nl">fontWithName</span><span class="p">:</span><span class="s">@&quot;HelveticaNeue&quot;</span> <span class="nl">size</span><span class="p">:</span><span class="mf">16.0</span><span class="p">];</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">buttonFont</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIFont</span> <span class="nl">fontWithName</span><span class="p">:</span><span class="s">@&quot;HelveticaNeue-Bold&quot;</span> <span class="nl">size</span><span class="p">:</span><span class="mf">16.0</span><span class="p">];</span>
+
+    <span class="c1">// Call Gini iOS Vision library with configuration</span>
+    <span class="p">[</span><span class="n">GiniVision</span> <span class="nl">captureImageWithViewController</span><span class="p">:</span><span class="nb">self</span> <span class="nl">delegate</span><span class="p">:</span><span class="nb">self</span> <span class="nl">configuration</span><span class="p">:</span><span class="n">configuration</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">@end</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="using-the-scanner.html" class="btn btn-neutral" title="Using the Scanner"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+</body>
+</html>

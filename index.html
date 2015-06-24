@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gini Vision documentation &mdash; Gini API v1 documentation</title>
+  <title>Gini iOS Vision documentation &mdash; Gini Vision SDK for iOS 1.1.7 documentation</title>
   
 
   
@@ -22,7 +22,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:'./',
-        VERSION:'v1',
+        VERSION:'1.1.7',
         COLLAPSE_INDEX:false,
         FILE_SUFFIX:'.html',
         HAS_SOURCE:  true
@@ -52,7 +52,7 @@
   
 
   
-    <link rel="top" title="Gini API v1 documentation" href="#"/>
+    <link rel="top" title="Gini Vision SDK for iOS 1.1.7 documentation" href="#"/>
         <link rel="next" title="Getting started" href="guides/getting-started.html"/> 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -97,6 +97,23 @@
 <li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> to upload files and update the UI</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="guides/using-the-scanner.html#void-didprogress-float-totalprogress"><tt class="docutils literal"><span class="pre">(void)didProgress:(float)totalProgress</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/using-the-scanner.html#void-didendupload"><tt class="docutils literal"><span class="pre">(void)didEndUpload</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/using-the-scanner.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#next-customize-the-ui">Next: Customize the UI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guides/style-the-module.html">Configuring the Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/style-the-module.html#screen-resources">Screen Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guides/style-the-module.html#camera-screen">Camera Screen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/style-the-module.html#help-screen">Help Screen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guides/style-the-module.html#use-the-giniconfiguration-to-customize-look-and-behaviour-of-the-module">Use the <tt class="docutils literal"><span class="pre">GiniConfiguration</span></tt> to customize look and behaviour of the module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guides/style-the-module.html#options">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/style-the-module.html#colors">Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/style-the-module.html#fonts">Fonts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/style-the-module.html#example">Example</a></li>
 </ul>
 </li>
 </ul>
@@ -113,7 +130,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Gini API</a>
+        <a href="#">Gini Vision SDK for iOS</a>
       </nav>
 
 
@@ -124,7 +141,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="#">Docs</a> &raquo;</li>
       
-    <li>Gini Vision documentation</li>
+    <li>Gini iOS Vision documentation</li>
       <li class="wy-breadcrumbs-aside">
         
       </li>
@@ -133,8 +150,8 @@
 </div>
           <div role="main">
             
-  <div class="section" id="gini-vision-documentation">
-<h1>Gini Vision documentation<a class="headerlink" href="#gini-vision-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="gini-ios-vision-documentation">
+<h1>Gini iOS Vision documentation<a class="headerlink" href="#gini-ios-vision-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Gini provides an information extraction system for analyzing documents (e. g. invoices or
@@ -157,6 +174,12 @@ best results when used with the Gini API and an optimized user experience.</p>
 <li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#start-the-image-capture">Start the image capture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#implement-and-use-the-ginivisiondelegate">Implement and use the <tt class="docutils literal"><span class="pre">GiniVisionDelegate</span></tt></a></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> to upload files and update the UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#next-customize-the-ui">Next: Customize the UI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guides/style-the-module.html">Configuring the Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/style-the-module.html#screen-resources">Screen Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/style-the-module.html#use-the-giniconfiguration-to-customize-look-and-behaviour-of-the-module">Use the <tt class="docutils literal"><span class="pre">GiniConfiguration</span></tt> to customize look and behaviour of the module</a></li>
 </ul>
 </li>
 </ul>

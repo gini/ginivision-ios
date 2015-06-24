@@ -1,0 +1,100 @@
+.. _guide-style-the-module:
+
+======================
+Configuring the Module
+======================
+
+The Gini iOS Vision library is built with the option to adopt the styling regarding the needs of your CI. Therefore the UI ressources used by the Gini iOS Vision library can be replaced or customized. Furthermore specific options are given to change the behaviour of the Gini iOS Vision library.
+
+.. note:: All configurations are optional. The Gini iOS Vision library will work out of the box with no configuration.
+
+Screen Resources
+================
+
+You can replace the images used by the library simply by replacing images in the ``GiniVision.bundle`` with the exact same resolution and name. Keep in mind to always replace all three variants (@1x, @2x and @3x) of an image. The following list will show which image is used on which screen.
+
+Camera Screen
+-------------
+
+* ``camera_screen_corners_invoice_a4remittance.png``, corners for invoice or integrated remittance slip
+* ``camera_screen_corners_remittance.png``, corners for remittance slip
+* ``messages_nahe_ran.png``, move closer message
+* ``messages_nicht_bewegen.png``, hold device still message
+
+Help Screen
+-----------------------------------------------------------------------------------------------
+
+* ``help_screen_1_invoice.png``, first help image
+* ``help_screen_2_richtig.png``, second help image (right)
+* ``help_screen_2_falsch.png``, second help image (wrong)
+* ``help_screen_3_richtig.png``, third help image (right)
+* ``help_screen_3_falsch.png``, third help image (wrong)
+* ``help_screen_4_richtig.png``, fourth help image (right)
+* ``help_screen_4_falsch.png``, fourth help image (wrong)
+
+Don't forget to add the respective multiplier at the end of an image file name, e.g. ``help_screen_1_invoice@2x.png``.
+
+Use the ``GiniConfiguration`` to customize look and behaviour of the module
+===========================================================================
+
+To configure colors, fonts and more options the Gini iOS Vision library provides a ``GiniConfiguration``. In order to start the scanner with your own configuration call ``captureImageWithViewController:delegate:configuration:`` on the ``GiniVision`` class. The following properties can be configured.
+
+Options
+-------
+
+* ``launchDocumentType`` of type ``GINIDocumentType`` skips the choice screen if it is different from ``GINIDocumentTypeDefault`` and starts the scanner with the provided document type.
+* ``showHelp`` of type ``BOOL`` shows the help screen directly after starting the Gini iOS Vision library.
+
+Colors
+------
+
+All colors are of type ``UIColor``.
+
+* ``navigationTintColor`` sets tint color of the navigation bar and the background of all regular buttons.
+* ``lightFontColor`` sets light font color.
+* ``darkFontColor`` sets dark font color, it is used for regular text.
+* ``actionFontColor`` will be used in the future to highlight specific text.
+
+Fonts
+-----
+
+All fonts are of type ``UIFont``. Therefore size and font family can be set.
+
+* ``navigationFont`` sets font for all elements in the navigation bar.
+* ``textFont`` sets font for regular text e.g. text below help images.
+* ``buttonFont`` sets font for regular button titles.
+
+Example
+-------
+
+The example considers the same structure :ref:`shown previously <guide-using-the-scanner>`. 
+It shows all possible configurations and their **default values**.
+
+.. code-block:: obj-c
+
+    @implementation MyViewController
+
+    - (IBAction) scanDocument:(UIButton *)sender {
+        GiniConfiguration *configuration = [GiniConfiguration new];
+
+        // Options
+        configuration.launchDocumentType = GINIDocumentTypeDefault; // Remember 'GINIDocumentTypeDefault' does NOT skip the choice screen.
+        configuration.showHelp = NO;
+
+        // Colors
+        configuration.navigationTintColor = [UIColor colorWithRed:(28/255.0) green:(141/255.0) blue:(214/255.0) alpha:1.0];
+        configuration.lightFontColor = [UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1.0];;
+        configuration.darkFontColor = [UIColor colorWithRed:(76/255.0) green:(76/255.0) blue:(76/255.0) alpha:1.0];
+        configuration.actionFontColor = [UIColor colorWithRed:(28/255.0) green:(141/255.0) blue:(214/255.0) alpha:1.0];
+
+        // Fonts
+        configuration.navigationFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0];
+        configuration.textFont = [UIFont fontWithName:@"HelveticaNeue" size:16.0];
+        configuration.buttonFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0];
+
+        // Call Gini iOS Vision library with configuration
+        [GiniVision captureImageWithViewController:self delegate:self configuration:configuration];
+    }
+
+    @end
+

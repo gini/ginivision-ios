@@ -16,6 +16,7 @@ capturing process. The arguments to this method call are:
   view controller which started the image capturing.
 * An instance of an object that implements the ``GiniVisionDelegate`` protocol. This delegate is
   called during several steps of the image capturing and gets the results of the image capturing.
+* *(optional)* A ``GiniConfiguration`` object to :ref:`cutomize the look and behaviour <guide-style-the-module>` of the Gini Vision iOS library.  
 
 The following example implements a callback for a touch event on a UIButton. In this callback, the
 image capturing is started.
@@ -83,7 +84,7 @@ whether the user has captured a document or has canceled the document capturing.
 .. _gini-vision-upload-delegate:
 
 Use the ``GINIVisionUploadDelegate`` to upload files and update the UI
-================================================================
+======================================================================
 
 Your application is responsible to upload the captured document, for example with the help of the
 `Gini SDK for iOS <http://developer.gini.net/gini-sdk-ios/>`_. Nevertheless, the Gini Vision library
@@ -102,6 +103,9 @@ Call this method after the upload of a document has been finished. It will make 
 capturing UI disappear and return to the screen of your UI from which the image capturing was
 started. After that, the `didFinish:` method of your application's `GiniVisionDelegate` will be
 called.
+
+Example
+-------
 
 The following example is based on the example above and shows how to use the ``GINIVisionUploadDelegate`` after a document has been captured and enhanced.
 
@@ -127,3 +131,8 @@ The following example is based on the example above and shows how to use the ``G
 
     @end
 
+Next: Customize the UI
+======================
+
+After you have successfully integrated the Gini Vision library for iOS with the Gini SDK you can
+customize your UI according to your CI. Learn next :ref:`how to style the module <guide-style-the-module>`.

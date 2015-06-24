@@ -1,5 +1,5 @@
-Gini Vision documentation
-=========================
+Gini iOS Vision documentation
+=============================
 
 Introduction
 ------------
@@ -20,6 +20,7 @@ Table of contents
 
    guides/getting-started
    guides/using-the-scanner
+   guides/style-the-module
 
 
 .. todolist::

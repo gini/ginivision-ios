@@ -9,7 +9,7 @@ framework into your application before you can use it.
 
 
 Integrate the library and frameworks
-===================================
+====================================
 
 The library consists of three files:
 
@@ -31,8 +31,9 @@ Also make you sure that you linked all the needed iOS frameworks. You can check 
 
 The needed iOS frameworks are:
 
-* CoreMedia.Framework
-* AVFoundation.Framework
+* CoreMedia.framework
+* AVFoundation.framework
+* AssetsLibrary.framework
 
 
 Set the linker settings
