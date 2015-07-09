@@ -81,6 +81,10 @@ feature in production.
 Called after the image capturing UI has been dismissed. The given argument success indicates
 whether the user has captured a document or has canceled the document capturing.
 
+``(void)didCancelUpload``
+-------------------------
+Called when the user cancels the upload process.
+
 .. _gini-vision-upload-delegate:
 
 Use the ``GINIVisionUploadDelegate`` to upload files and update the UI
@@ -96,6 +100,11 @@ methods on this delegate in order to update the UI to reflect the current update
 ------------------------------------------
 Call this method during the upload of the document to update the activity indicator of the upload
 UI accordingly. The parameter represents the progress in the upload process of the document on a scale from 0 to 1.
+
+``(void)didProgressWithMessage:(NSString *)message``
+----------------------------------------------------
+Call this method during the upload of the document to update the hub with a custom message. 
+The message will be presented in the navigation bar therefore use short and concise messages.
 
 ``(void)didEndUpload``
 ----------------------
@@ -124,7 +133,8 @@ The following example is based on the example above and shows how to use the ``G
         /* Implement the Gini SDK for iOS or your custom upload to send the scanned and enhanced document to be processed. */
 
         // Inform the delegate about the progress of the uploading process, so the UI gets updated properly.
-        [delegate didProgress:0.25];
+        [delegate didProgressWithMessage:@"Analyzing document"];
+
         // Inform the delegate that the upload ended, the UI is then switched back to your application's UI.
         [delegate didEndUpload];     
     }

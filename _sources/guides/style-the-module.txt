@@ -16,21 +16,21 @@ You can replace the images used by the library simply by replacing images in the
 Camera Screen
 -------------
 
-* ``camera_screen_corners_invoice_a4remittance.png``, corners for invoice or integrated remittance slip
-* ``camera_screen_corners_remittance.png``, corners for remittance slip
-* ``messages_nahe_ran.png``, move closer message
-* ``messages_nicht_bewegen.png``, hold device still message
+* ``camera_screen_corners_invoice_a4remittance.png`` corners for invoice or integrated remittance slip.
+* ``camera_screen_corners_remittance.png`` corners for remittance slip.
+* ``messages_nahe_ran.png`` move closer message.
+* ``messages_nicht_bewegen.png`` hold device still message.
 
 Help Screen
------------------------------------------------------------------------------------------------
+-----------
 
-* ``help_screen_1_invoice.png``, first help image
-* ``help_screen_2_richtig.png``, second help image (right)
-* ``help_screen_2_falsch.png``, second help image (wrong)
-* ``help_screen_3_richtig.png``, third help image (right)
-* ``help_screen_3_falsch.png``, third help image (wrong)
-* ``help_screen_4_richtig.png``, fourth help image (right)
-* ``help_screen_4_falsch.png``, fourth help image (wrong)
+* ``help_screen_1_invoice.png`` first help image
+* ``help_screen_2_richtig.png`` second help image (right).
+* ``help_screen_2_falsch.png`` second help image (wrong).
+* ``help_screen_3_richtig.png`` third help image (right).
+* ``help_screen_3_falsch.png`` third help image (wrong).
+* ``help_screen_4_richtig.png`` fourth help image (right).
+* ``help_screen_4_falsch.png`` fourth help image (wrong).
 
 Don't forget to add the respective multiplier at the end of an image file name, e.g. ``help_screen_1_invoice@2x.png``.
 
@@ -44,6 +44,8 @@ Options
 
 * ``launchDocumentType`` of type ``GINIDocumentType`` skips the choice screen if it is different from ``GINIDocumentTypeDefault`` and starts the scanner with the provided document type.
 * ``showHelp`` of type ``BOOL`` shows the help screen directly after starting the Gini iOS Vision library.
+* ``disableInteractiveSwipeGesture`` of type ``BOOL`` disables swipe back gesture on navigation controller.
+* ``closeButtonImage`` of type ``UIImage`` sets an image for the close button. If image is not set text "Schließen" will be used instead.
 
 Colors
 ------
@@ -54,6 +56,8 @@ All colors are of type ``UIColor``.
 * ``lightFontColor`` sets light font color.
 * ``darkFontColor`` sets dark font color, it is used for regular text.
 * ``actionFontColor`` will be used in the future to highlight specific text.
+* ``backgroundColor`` sets the background color for all screens except the help screens.
+* ``helpViewBackgroundColor`` sets the background color in the help screens.
 
 Fonts
 -----
@@ -63,6 +67,24 @@ All fonts are of type ``UIFont``. Therefore size and font family can be set.
 * ``navigationFont`` sets font for all elements in the navigation bar.
 * ``textFont`` sets font for regular text e.g. text below help images.
 * ``buttonFont`` sets font for regular button titles.
+
+Texts
+-----
+
+All texts are of type ``NSString``.
+
+* ``choiceTitle`` sets title text for the choice view controller.
+* ``scannerTitle`` sets title text for scanner view controller.
+* ``helpTitle`` sets title text for help view controller.
+* ``uploadTitle`` sets title text for upload view controller.
+* ``choiceHeadingText`` sets text for choice view controller heading.
+* ``help1Text`` sets text for help view controller text 1.
+* ``help2Text`` sets text for help view controller text 2.
+* ``help3Text`` sets text for help view controller text 3.
+* ``help4Text`` sets text for help view controller text 4.
+* ``uploadCancelButtonTitle`` sets text for upload view controller cancel button title.
+* ``cameraAuthErrorTitle`` sets error title for failed camera authorization.
+* ``cameraAuthErrorText`` sets error text for failed camera authorization.
 
 Example
 -------
@@ -74,24 +96,42 @@ It shows all possible configurations and their **default values**.
 
     @implementation MyViewController
 
-    - (IBAction) scanDocument:(UIButton *)sender {
+    - (IBAction)scanDocument:(UIButton *)sender {
         GiniConfiguration *configuration = [GiniConfiguration new];
-
+        
         // Options
         configuration.launchDocumentType = GINIDocumentTypeDefault; // Remember 'GINIDocumentTypeDefault' does NOT skip the choice screen.
         configuration.showHelp = NO;
-
+        configuration.disableInteractiveSwipeGesture = NO;
+        configuration.closeButtonImage = nil;
+        
         // Colors
         configuration.navigationTintColor = [UIColor colorWithRed:(28/255.0) green:(141/255.0) blue:(214/255.0) alpha:1.0];
         configuration.lightFontColor = [UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1.0];;
         configuration.darkFontColor = [UIColor colorWithRed:(76/255.0) green:(76/255.0) blue:(76/255.0) alpha:1.0];
         configuration.actionFontColor = [UIColor colorWithRed:(28/255.0) green:(141/255.0) blue:(214/255.0) alpha:1.0];
-
+        configuration.backgroundColor = [UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1.0];
+        configuration.helpViewBackgroundColor = [UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1.0];
+        
         // Fonts
         configuration.navigationFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0];
         configuration.textFont = [UIFont fontWithName:@"HelveticaNeue" size:16.0];
         configuration.buttonFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0];
-
+        
+        // Texts
+        configuration.choiceTitle = @"Foto-Überweisung";
+        configuration.scannerTitle = @"Foto-Überweisung";
+        configuration.helpTitle = @"Hilfe";
+        configuration.uploadTitle = @"Foto-Überweisung";
+        configuration.choiceHeadingText = @"Welcher Dokument-Typ?";
+        configuration.help1Text = @"Foto wird automatisch ausgelöst sobald Dokument an Ecken ausgerichtet ist.";
+        configuration.help2Text = @"Gerät parallel über das Dokument halten.";
+        configuration.help3Text = @"Dokument auf dunklen Hintergrund platzieren.";
+        configuration.help4Text = @"Dokument muss glatt sein, damit Text gut ausgelesen werden kann.";
+        configuration.uploadCancelButtonTitle = @"Abbrechen";
+        configuration.cameraAuthErrorTitle = @"Kein Kamerazugriff erlaubt";
+        configuration.cameraAuthErrorText = @"Bitte aktivieren Sie unter Einstellungen > Datenschutz > Kamera die Zugriffsrechte für diese Anwendung.";
+        
         // Call Gini iOS Vision library with configuration
         [GiniVision captureImageWithViewController:self delegate:self configuration:configuration];
     }

@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting started &mdash; Gini Vision SDK for iOS 1.1.7 documentation</title>
+  <title>Getting started &mdash; Gini Vision SDK for iOS 1.1.8 documentation</title>
   
 
   
@@ -22,7 +22,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:'../',
-        VERSION:'1.1.7',
+        VERSION:'1.1.8',
         COLLAPSE_INDEX:false,
         FILE_SUFFIX:'.html',
         HAS_SOURCE:  true
@@ -52,7 +52,7 @@
   
 
   
-    <link rel="top" title="Gini Vision SDK for iOS 1.1.7 documentation" href="../index.html"/>
+    <link rel="top" title="Gini Vision SDK for iOS 1.1.8 documentation" href="../index.html"/>
         <link rel="next" title="Using the Scanner" href="using-the-scanner.html"/>
         <link rel="prev" title="Gini iOS Vision documentation" href="../index.html"/> 
 
@@ -82,8 +82,9 @@
         
             <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#integrate-the-library-and-frameworks">Integrate the library and frameworks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#set-the-linker-settings">Set the linker settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integrate-using-cocoapods">Integrate using CocoaPods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integrate-the-library-and-frameworks-manually">Integrate the library and frameworks manually</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-the-linker-settings-manually">Set the linker settings manually</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#next-use-the-scanner-activity">Next: Use the Scanner Activity</a></li>
 </ul>
 </li>
@@ -93,10 +94,12 @@
 <li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#didscan-uiimage-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate"><tt class="docutils literal"><span class="pre">didScan:(UIImage</span> <span class="pre">*)</span> <span class="pre">documentType:(GINIDocumentType)</span> <span class="pre">uploadDelegate:(id&lt;GINIUploadDelegate&gt;)</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#void-didscanoriginal-uiimage"><tt class="docutils literal"><span class="pre">(void)didScanOriginal:(UIImage</span> <span class="pre">*)</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#void-didfinishcapturing-bool"><tt class="docutils literal"><span class="pre">(void)didFinishCapturing:(BOOL)</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#void-didcancelupload"><tt class="docutils literal"><span class="pre">(void)didCancelUpload</span></tt></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="using-the-scanner.html#use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> to upload files and update the UI</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#void-didprogress-float-totalprogress"><tt class="docutils literal"><span class="pre">(void)didProgress:(float)totalProgress</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#void-didprogresswithmessage-nsstring-message"><tt class="docutils literal"><span class="pre">(void)didProgressWithMessage:(NSString</span> <span class="pre">*)message</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#void-didendupload"><tt class="docutils literal"><span class="pre">(void)didEndUpload</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="using-the-scanner.html#example">Example</a></li>
 </ul>
@@ -114,6 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="style-the-module.html#options">Options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="style-the-module.html#colors">Colors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="style-the-module.html#fonts">Fonts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style-the-module.html#texts">Texts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="style-the-module.html#example">Example</a></li>
 </ul>
 </li>
@@ -155,13 +159,36 @@
 <span id="guide-getting-started"></span><h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <p>The Gini Vision Library for iOS is shipped as a Cocoa touch framework. You must integrate the
 framework into your application before you can use it.</p>
-<div class="section" id="integrate-the-library-and-frameworks">
-<h2>Integrate the library and frameworks<a class="headerlink" href="#integrate-the-library-and-frameworks" title="Permalink to this headline">¶</a></h2>
+<p>Integration can be done either manually or using <a class="reference external" href="https://cocoapods.org/">CocoaPods</a>. The preferred way is using CocoaPods.</p>
+<div class="section" id="integrate-using-cocoapods">
+<h2>Integrate using CocoaPods<a class="headerlink" href="#integrate-using-cocoapods" title="Permalink to this headline">¶</a></h2>
+<p>To add the Gini Vision Library to your XCode project you must add the Gini Podspecs repository and the Gini Vision Library pod to your <tt class="docutils literal"><span class="pre">Podfile</span></tt>:</p>
+<div class="highlight-obj-c"><div class="highlight"><pre>source &#39;https://github.com/gini/gini-podspecs.git&#39;
+source &#39;https://github.com/CocoaPods/Specs.git&#39;
+
+pod &#39;GiniVisionSDK&#39;, &#39;~&gt; 0.91.24&#39;
+</pre></div>
+</div>
+<p>The Gini Vision Library can only be installed by CocoaPods if you also set your Gini username and password as environment variables before using <tt class="docutils literal"><span class="pre">$</span> <span class="pre">pod</span> <span class="pre">install</span></tt>. The environment variables are <tt class="docutils literal"><span class="pre">GINI_USER</span></tt> and <tt class="docutils literal"><span class="pre">GINI_PASSWORD</span></tt>. These can be set in many ways and we recommend not setting them globally (in <tt class="docutils literal"><span class="pre">.bash_profile</span></tt> or similar), but either using a script or specifying the variables on the command line directly.</p>
+<p>Using a script:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">export </span><span class="nv">GINI_USER</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="nb">export </span><span class="nv">GINI_PASSWORD</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+pod install
+</pre></div>
+</div>
+<p>Or as a single line command:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nv">$ GINI_USER</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="nv">GINI_PASSWORD</span><span class="o">=</span><span class="s2">&quot;&quot;</span> pod install
+</pre></div>
+</div>
+<p>CocoaPods should have installed the Gini Vision Library and you are now ready to write some code. Learn next <a class="reference internal" href="using-the-scanner.html#guide-using-the-scanner"><em>how to scan a document</em></a>.</p>
+</div>
+<div class="section" id="integrate-the-library-and-frameworks-manually">
+<h2>Integrate the library and frameworks manually<a class="headerlink" href="#integrate-the-library-and-frameworks-manually" title="Permalink to this headline">¶</a></h2>
 <p>The library consists of three files:</p>
 <ul class="simple">
 <li>The <tt class="docutils literal"><span class="pre">GiniVision.framework</span></tt> containing the library in a binary form.</li>
 <li>The <tt class="docutils literal"><span class="pre">GiniVision.bundle</span></tt> containing all UI assets (images, storyboards, etc).</li>
-<li>The <tt class="docutils literal"><span class="pre">opencv.framework</span></tt> containing a build of the third-party OpenCV library.</li>
+<li>The <tt class="docutils literal"><span class="pre">opencv.framework</span></tt> containing a build of the third-party OpenCV library in version 2.4.8.</li>
 </ul>
 <p>It is absolutely necessary that you add all three files. Otherwise the framework and therefore
 your application may crash.</p>
@@ -178,8 +205,8 @@ the target. Make sure that you select the correct target (which is the target of
 <li>AssetsLibrary.framework</li>
 </ul>
 </div>
-<div class="section" id="set-the-linker-settings">
-<h2>Set the linker settings<a class="headerlink" href="#set-the-linker-settings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-the-linker-settings-manually">
+<h2>Set the linker settings manually<a class="headerlink" href="#set-the-linker-settings-manually" title="Permalink to this headline">¶</a></h2>
 <p>The Gini Vision library for iOS is written in Objective-C++, not in Objective-C. Because of that,
 you need to set a linker flag. Otherwise your application will not build due to linker errors. In
 the Build Settings of your application, you need to add the value <tt class="docutils literal"><span class="pre">-l&quot;stdc++&quot;</span></tt> to &#8220;Other Linker Flags&#8221; in the Linking section.</p>

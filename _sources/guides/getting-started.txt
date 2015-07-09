@@ -7,15 +7,46 @@ Getting started
 The Gini Vision Library for iOS is shipped as a Cocoa touch framework. You must integrate the
 framework into your application before you can use it.
 
+Integration can be done either manually or using `CocoaPods <https://cocoapods.org/>`_. The preferred way is using CocoaPods.
 
-Integrate the library and frameworks
-====================================
+Integrate using CocoaPods
+=========================
+
+To add the Gini Vision Library to your XCode project you must add the Gini Podspecs repository and the Gini Vision Library pod to your ``Podfile``:
+
+.. code-block:: obj-c
+    
+    source 'https://github.com/gini/gini-podspecs.git'
+    source 'https://github.com/CocoaPods/Specs.git'
+
+    pod 'GiniVisionSDK', '~> 0.91.24' 
+
+The Gini Vision Library can only be installed by CocoaPods if you also set your Gini username and password as environment variables before using ``$ pod install``. The environment variables are ``GINI_USER`` and ``GINI_PASSWORD``. These can be set in many ways and we recommend not setting them globally (in ``.bash_profile`` or similar), but either using a script or specifying the variables on the command line directly.
+
+Using a script:
+
+.. code-block:: sh
+
+    export GINI_USER=""
+    export GINI_PASSWORD=""
+    pod install
+
+Or as a single line command:
+
+.. code-block:: sh
+
+    $ GINI_USER="" GINI_PASSWORD="" pod install
+
+CocoaPods should have installed the Gini Vision Library and you are now ready to write some code. Learn next :ref:`how to scan a document <guide-using-the-scanner>`.
+
+Integrate the library and frameworks manually
+=============================================
 
 The library consists of three files:
 
 * The ``GiniVision.framework`` containing the library in a binary form.
 * The ``GiniVision.bundle`` containing all UI assets (images, storyboards, etc).
-* The ``opencv.framework`` containing a build of the third-party OpenCV library.
+* The ``opencv.framework`` containing a build of the third-party OpenCV library in version 2.4.8.
 
 It is absolutely necessary that you add all three files. Otherwise the framework and therefore
 your application may crash.
@@ -36,8 +67,8 @@ The needed iOS frameworks are:
 * AssetsLibrary.framework
 
 
-Set the linker settings
-=======================
+Set the linker settings manually
+================================
 
 The Gini Vision library for iOS is written in Objective-C++, not in Objective-C. Because of that,
 you need to set a linker flag. Otherwise your application will not build due to linker errors. In

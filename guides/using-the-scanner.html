@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using the Scanner &mdash; Gini Vision SDK for iOS 1.1.7 documentation</title>
+  <title>Using the Scanner &mdash; Gini Vision SDK for iOS 1.1.8 documentation</title>
   
 
   
@@ -22,7 +22,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:'../',
-        VERSION:'1.1.7',
+        VERSION:'1.1.8',
         COLLAPSE_INDEX:false,
         FILE_SUFFIX:'.html',
         HAS_SOURCE:  true
@@ -52,7 +52,7 @@
   
 
   
-    <link rel="top" title="Gini Vision SDK for iOS 1.1.7 documentation" href="../index.html"/>
+    <link rel="top" title="Gini Vision SDK for iOS 1.1.8 documentation" href="../index.html"/>
         <link rel="next" title="Configuring the Module" href="style-the-module.html"/>
         <link rel="prev" title="Getting started" href="getting-started.html"/> 
 
@@ -82,8 +82,9 @@
         
             <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#integrate-the-library-and-frameworks">Integrate the library and frameworks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#set-the-linker-settings">Set the linker settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#integrate-using-cocoapods">Integrate using CocoaPods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#integrate-the-library-and-frameworks-manually">Integrate the library and frameworks manually</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#set-the-linker-settings-manually">Set the linker settings manually</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-started.html#next-use-the-scanner-activity">Next: Use the Scanner Activity</a></li>
 </ul>
 </li>
@@ -93,10 +94,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#didscan-uiimage-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate"><tt class="docutils literal"><span class="pre">didScan:(UIImage</span> <span class="pre">*)</span> <span class="pre">documentType:(GINIDocumentType)</span> <span class="pre">uploadDelegate:(id&lt;GINIUploadDelegate&gt;)</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#void-didscanoriginal-uiimage"><tt class="docutils literal"><span class="pre">(void)didScanOriginal:(UIImage</span> <span class="pre">*)</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#void-didfinishcapturing-bool"><tt class="docutils literal"><span class="pre">(void)didFinishCapturing:(BOOL)</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#void-didcancelupload"><tt class="docutils literal"><span class="pre">(void)didCancelUpload</span></tt></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> to upload files and update the UI</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#void-didprogress-float-totalprogress"><tt class="docutils literal"><span class="pre">(void)didProgress:(float)totalProgress</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#void-didprogresswithmessage-nsstring-message"><tt class="docutils literal"><span class="pre">(void)didProgressWithMessage:(NSString</span> <span class="pre">*)message</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#void-didendupload"><tt class="docutils literal"><span class="pre">(void)didEndUpload</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
@@ -114,6 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="style-the-module.html#options">Options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="style-the-module.html#colors">Colors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="style-the-module.html#fonts">Fonts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style-the-module.html#texts">Texts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="style-the-module.html#example">Example</a></li>
 </ul>
 </li>
@@ -223,6 +227,10 @@ feature in production.</p>
 <p>Called after the image capturing UI has been dismissed. The given argument success indicates
 whether the user has captured a document or has canceled the document capturing.</p>
 </div>
+<div class="section" id="void-didcancelupload">
+<h3><tt class="docutils literal"><span class="pre">(void)didCancelUpload</span></tt><a class="headerlink" href="#void-didcancelupload" title="Permalink to this headline">¶</a></h3>
+<p>Called when the user cancels the upload process.</p>
+</div>
 </div>
 <div class="section" id="use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">
 <span id="gini-vision-upload-delegate"></span><h2>Use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> to upload files and update the UI<a class="headerlink" href="#use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui" title="Permalink to this headline">¶</a></h2>
@@ -235,6 +243,11 @@ methods on this delegate in order to update the UI to reflect the current update
 <h3><tt class="docutils literal"><span class="pre">(void)didProgress:(float)totalProgress</span></tt><a class="headerlink" href="#void-didprogress-float-totalprogress" title="Permalink to this headline">¶</a></h3>
 <p>Call this method during the upload of the document to update the activity indicator of the upload
 UI accordingly. The parameter represents the progress in the upload process of the document on a scale from 0 to 1.</p>
+</div>
+<div class="section" id="void-didprogresswithmessage-nsstring-message">
+<h3><tt class="docutils literal"><span class="pre">(void)didProgressWithMessage:(NSString</span> <span class="pre">*)message</span></tt><a class="headerlink" href="#void-didprogresswithmessage-nsstring-message" title="Permalink to this headline">¶</a></h3>
+<p>Call this method during the upload of the document to update the hub with a custom message.
+The message will be presented in the navigation bar therefore use short and concise messages.</p>
 </div>
 <div class="section" id="void-didendupload">
 <h3><tt class="docutils literal"><span class="pre">(void)didEndUpload</span></tt><a class="headerlink" href="#void-didendupload" title="Permalink to this headline">¶</a></h3>
@@ -259,7 +272,8 @@ called.</p>
     <span class="cm">/* Implement the Gini SDK for iOS or your custom upload to send the scanned and enhanced document to be processed. */</span>
 
     <span class="c1">// Inform the delegate about the progress of the uploading process, so the UI gets updated properly.</span>
-    <span class="p">[</span><span class="n">delegate</span> <span class="nl">didProgress</span><span class="p">:</span><span class="mf">0.25</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">delegate</span> <span class="nl">didProgressWithMessage</span><span class="p">:</span><span class="s">@&quot;Analyzing document&quot;</span><span class="p">];</span>
+
     <span class="c1">// Inform the delegate that the upload ended, the UI is then switched back to your application&#39;s UI.</span>
     <span class="p">[</span><span class="n">delegate</span> <span class="n">didEndUpload</span><span class="p">];</span>
 <span class="p">}</span>
