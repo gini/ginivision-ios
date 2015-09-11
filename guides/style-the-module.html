@@ -197,6 +197,12 @@
 <li><tt class="docutils literal"><span class="pre">showHelp</span></tt> of type <tt class="docutils literal"><span class="pre">BOOL</span></tt> shows the help screen directly after starting the Gini iOS Vision library.</li>
 <li><tt class="docutils literal"><span class="pre">disableInteractiveSwipeGesture</span></tt> of type <tt class="docutils literal"><span class="pre">BOOL</span></tt> disables swipe back gesture on navigation controller.</li>
 <li><tt class="docutils literal"><span class="pre">closeButtonImage</span></tt> of type <tt class="docutils literal"><span class="pre">UIImage</span></tt> sets an image for the close button. If image is not set text &#8220;Schließen&#8221; will be used instead.</li>
+<li><tt class="docutils literal"><span class="pre">navigationShadowImage</span></tt> of type <tt class="docutils literal"><span class="pre">UIImage</span></tt> sets an image for the navigation bar&#8217;s shadow. You can use the <tt class="docutils literal"><span class="pre">[GiniConfiguration</span> <span class="pre">imageWithColor:andSize:]</span></tt> helper method to create a monochrome shadow image. Can be used for example to create a one pixel thick line below the navigation bar.</li>
+<li><tt class="docutils literal"><span class="pre">navigationBackButtonImage</span></tt> of type <tt class="docutils literal"><span class="pre">UIImage</span></tt> sets the background image for the navigation bar&#8217;s back button.</li>
+<li><tt class="docutils literal"><span class="pre">choiceHeadingTextSize</span></tt> of type <tt class="docutils literal"><span class="pre">CGFloat</span></tt> sets the text size of the heading text in the choice screen.</li>
+<li><tt class="docutils literal"><span class="pre">uploadActivityIndicatorPosition</span></tt> of type <tt class="docutils literal"><span class="pre">GINIUploadActivityIndicatorPosition</span></tt> sets the position of the activity indicator in the upload screen.</li>
+<li><tt class="docutils literal"><span class="pre">customActivityIndicatorImage</span></tt> of type <tt class="docutils literal"><span class="pre">UIImage</span></tt> sets the image which will be used for the custom activity indicator. This image will shown rotating centered on the preview image in the upload screen.</li>
+<li><tt class="docutils literal"><span class="pre">outlineWidth</span></tt> of type <tt class="docutils literal"><span class="pre">CGFloat</span></tt> sets the width of the document outline shown in the camera viewfinder.</li>
 </ul>
 </div>
 <div class="section" id="colors">
@@ -204,11 +210,13 @@
 <p>All colors are of type <tt class="docutils literal"><span class="pre">UIColor</span></tt>.</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">navigationTintColor</span></tt> sets tint color of the navigation bar and the background of all regular buttons.</li>
+<li><tt class="docutils literal"><span class="pre">navigationButtonsTintColor</span></tt> sets the tint color of the navigation bar default buttons.</li>
 <li><tt class="docutils literal"><span class="pre">lightFontColor</span></tt> sets light font color.</li>
 <li><tt class="docutils literal"><span class="pre">darkFontColor</span></tt> sets dark font color, it is used for regular text.</li>
 <li><tt class="docutils literal"><span class="pre">actionFontColor</span></tt> will be used in the future to highlight specific text.</li>
 <li><tt class="docutils literal"><span class="pre">backgroundColor</span></tt> sets the background color for all screens except the help screens.</li>
 <li><tt class="docutils literal"><span class="pre">helpViewBackgroundColor</span></tt> sets the background color in the help screens.</li>
+<li><tt class="docutils literal"><span class="pre">uploadCancelButtonBackgroundColor</span></tt> sets the background color for the cancel button in the upload screen. If not set <tt class="docutils literal"><span class="pre">navigationTintColor</span></tt> is used.</li>
 </ul>
 </div>
 <div class="section" id="fonts">
@@ -225,7 +233,10 @@
 <p>All texts are of type <tt class="docutils literal"><span class="pre">NSString</span></tt>.</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">choiceTitle</span></tt> sets title text for the choice view controller.</li>
-<li><tt class="docutils literal"><span class="pre">scannerTitle</span></tt> sets title text for scanner view controller.</li>
+<li><tt class="docutils literal"><span class="pre">scannerTitle</span></tt> sets the default title text for the scanner view controller.</li>
+<li><tt class="docutils literal"><span class="pre">scannerTitleInvoice</span></tt> sets the title text for the scanner view controller, when the document type is invoice. If not set <tt class="docutils literal"><span class="pre">scannerTitle</span></tt> is used.</li>
+<li><tt class="docutils literal"><span class="pre">scannerTitleRemittance</span></tt> sets the title text for the scanner view controller, when the document type is remittance. If not set <tt class="docutils literal"><span class="pre">scannerTitle</span></tt> is used.</li>
+<li><tt class="docutils literal"><span class="pre">scannerTitleIntegratedRemittance</span></tt> sets the title text for the scanner view controller, when the document type is integrated remittance. If not set <tt class="docutils literal"><span class="pre">scannerTitle</span></tt> is used.</li>
 <li><tt class="docutils literal"><span class="pre">helpTitle</span></tt> sets title text for help view controller.</li>
 <li><tt class="docutils literal"><span class="pre">uploadTitle</span></tt> sets title text for upload view controller.</li>
 <li><tt class="docutils literal"><span class="pre">choiceHeadingText</span></tt> sets text for choice view controller heading.</li>
