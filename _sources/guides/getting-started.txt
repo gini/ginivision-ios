@@ -55,7 +55,7 @@ To add the library to your application, simply drag the files from Finder and dr
 application's files (on the left side of XCode). There will appear a popup where you have to select
 the target. Make sure that you select the correct target (which is the target of your application) and that "Copy items if needed" is checked.
 
-.. image:: ./xcode_target.png
+.. image:: /images/xcode_target.png
 
 Also make you sure that you linked all the needed iOS frameworks. You can check it in the
 "Linked Frameworks and Libraries" section in the General settings page of your applciation's target.
@@ -74,7 +74,7 @@ The Gini Vision library for iOS is written in Objective-C++, not in Objective-C.
 you need to set a linker flag. Otherwise your application will not build due to linker errors. In
 the Build Settings of your application, you need to add the value ``-l"stdc++"`` to "Other Linker Flags" in the Linking section.
 
-.. image:: ./xcode_settings.png
+.. image:: /images/xcode_settings.png
 
 .. hint:: If you see "Apple Mach-O Linker Errors", for example "Undefined symbols for architecture x86_64"
           it is very likely that you forgot to set the linker flag or set the linker flag incorrectly.

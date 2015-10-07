@@ -22,5 +22,4 @@ Table of contents
    guides/using-the-scanner
    guides/style-the-module
 
-
 .. todolist::

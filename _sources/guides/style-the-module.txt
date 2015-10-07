@@ -11,19 +11,44 @@ The Gini iOS Vision library is built with the option to adopt the styling regard
 Screen Resources
 ================
 
-You can replace the images used by the library simply by replacing images in the ``GiniVision.bundle`` with the exact same resolution and name. Keep in mind to always replace all three variants (@1x, @2x and @3x) of an image. The following list will show which image is used on which screen.
+You can replace the images used by the library simply by replacing images in the ``GiniVision.bundle`` with the exact same resolution and name. Remember to always replace all three variants (@1x, @2x and @3x) of an image. The following screen images will show which image and which text resources are used on which screen. The color scheme is as follows: ``red``- images, ``blue``- texts.
 
 Camera Screen
 -------------
+
+.. image:: /images/camera_a4_iOS.png
+.. image:: /images/camera_remittance_iOS.png
+.. image:: /images/message_closer_iOS.png
+.. image:: /images/message_still_iOS.png
+
+Help Screen #1
+--------------
+
+.. image:: /images/help_1_iOS.png
+
+Help Screen #2
+--------------
+
+.. image:: /images/help_2_iOS.png
+
+Help Screen #3
+--------------
+
+.. image:: /images/help_3_iOS.png
+
+Help Screen #4
+--------------
+
+.. image:: /images/help_4_iOS.png
+
+
+List of all image files
+-----------------------
 
 * ``camera_screen_corners_invoice_a4remittance.png`` corners for invoice or integrated remittance slip.
 * ``camera_screen_corners_remittance.png`` corners for remittance slip.
 * ``messages_nahe_ran.png`` move closer message.
 * ``messages_nicht_bewegen.png`` hold device still message.
-
-Help Screen
------------
-
 * ``help_screen_1_invoice.png`` first help image
 * ``help_screen_2_richtig.png`` second help image (right).
 * ``help_screen_2_falsch.png`` second help image (wrong).
@@ -34,8 +59,13 @@ Help Screen
 
 Don't forget to add the respective multiplier at the end of an image file name, e.g. ``help_screen_1_invoice@2x.png``.
 
-Use the ``GiniConfiguration`` to customize look and behaviour of the module
-===========================================================================
+List of all text resources
+--------------------------
+
+Find all configurable text resources in the :ref:`Texts section <configurable-texts>`.
+
+Use the ``GiniConfiguration`` to customize look and behavior of the module
+==========================================================================
 
 To configure colors, fonts and more options the Gini iOS Vision library provides a ``GiniConfiguration``. In order to start the scanner with your own configuration call ``captureImageWithViewController:delegate:configuration:`` on the ``GiniVision`` class. The following properties can be configured.
 
@@ -75,6 +105,8 @@ All fonts are of type ``UIFont``. Therefore size and font family can be set.
 * ``navigationFont`` sets font for all elements in the navigation bar.
 * ``textFont`` sets font for regular text e.g. text below help images.
 * ``buttonFont`` sets font for regular button titles.
+
+.. _configurable-texts:
 
 Texts
 -----
