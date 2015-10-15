@@ -19,7 +19,7 @@ To add the Gini Vision Library to your XCode project you must add the Gini Podsp
     source 'https://github.com/gini/gini-podspecs.git'
     source 'https://github.com/CocoaPods/Specs.git'
 
-    pod 'GiniVisionSDK', '~> 0.91.89' 
+    pod 'GiniVisionSDK', '~> 0.91.97' 
 
 The Gini Vision Library can only be installed by CocoaPods if you also set your Gini username and password as environment variables before using ``$ pod install``. The environment variables are ``GINI_USER`` and ``GINI_PASSWORD``. These can be set in many ways and we recommend not setting them globally (in ``.bash_profile`` or similar), but either using a script or specifying the variables on the command line directly.
 
