@@ -1,0 +1,61 @@
+=========
+Changelog
+=========
+
+0.91.99 (2015-10-23)
+====================
+
+Bugfix
+------
+
+- CFBundleExecutable removed, which caused Apple to reject apps, because the SDK has no executable.
+
+0.91.97 (2015-10-15)
+====================
+
+Features
+--------
+
+- Navigation bar button help item customizable.
+- Navigation bar button help close item customizable: left, right, remove spacing.
+
+0.91.89 (2015-10-05)
+====================
+
+Bugfix
+------
+
+- Back button title was shown on iOS7 when starting the scanner directly.
+
+0.91.83 (2015-09-11)
+====================
+
+Features
+--------
+
+- Document outline width customizable.
+- Upload activity indicator customizable: top left, image center, image center custom rotating image.
+- Navigation bar buttons tint color customizable.
+- Navigation back button image customizable.
+
+0.91.74 (2015-08-13)
+====================
+
+Bugfixes
+--------
+
+- State machine compares last states before capturing to continue with the most common one.
+
+0.91.67 (2015-07-24)
+====================
+
+Features
+--------
+
+- Configurable outline for camera overlay.
+- README.md shortened and points to the documentation for details.
+
+Bugfixes
+--------
+
+- UIBarButtonItem text and font changes don't override application wide settings.

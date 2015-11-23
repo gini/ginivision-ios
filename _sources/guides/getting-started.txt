@@ -4,7 +4,7 @@
 Getting started
 ===============
 
-The Gini Vision Library for iOS is shipped as a Cocoa touch framework. You must integrate the
+The Gini iOS Vision Library is shipped as a Cocoa touch framework. You must integrate the
 framework into your application before you can use it.
 
 Integration can be done either manually or using `CocoaPods <https://cocoapods.org/>`_. The preferred way is using CocoaPods.

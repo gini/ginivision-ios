@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Gini Vision SDK for iOS 1.1.9 documentation</title>
+  
+
+  
+  
+
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic|Source+Code+Pro|Roboto+Slab:400,700" rel="stylesheet" type="text/css" />
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'../',
+        VERSION:'1.1.9',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+    <script type="text/javascript">
+        jQuery(function () {
+            SphinxRtdTheme.StickyNav.enable();
+        });
+    </script>
+  
+
+  
+    <link rel="top" title="Gini Vision SDK for iOS 1.1.9 documentation" href="../index.html"/> 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" id="gini-logo">gini API</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guides/getting-started.html#integrate-using-cocoapods">Integrate using CocoaPods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/getting-started.html#integrate-the-library-and-frameworks-manually">Integrate the library and frameworks manually</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/getting-started.html#set-the-linker-settings-manually">Set the linker settings manually</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/getting-started.html#next-use-the-scanner-activity">Next: Use the Scanner Activity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/using-the-scanner.html">Using the Scanner</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guides/using-the-scanner.html#start-the-image-capture">Start the image capture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/using-the-scanner.html#implement-and-use-the-ginivisiondelegate">Implement and use the <tt class="docutils literal"><span class="pre">GiniVisionDelegate</span></tt></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../guides/using-the-scanner.html#didscan-uiimage-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate"><tt class="docutils literal"><span class="pre">didScan:(UIImage</span> <span class="pre">*)</span> <span class="pre">documentType:(GINIDocumentType)</span> <span class="pre">uploadDelegate:(id&lt;GINIUploadDelegate&gt;)</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/using-the-scanner.html#void-didscanoriginal-uiimage"><tt class="docutils literal"><span class="pre">(void)didScanOriginal:(UIImage</span> <span class="pre">*)</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/using-the-scanner.html#void-didfinishcapturing-bool"><tt class="docutils literal"><span class="pre">(void)didFinishCapturing:(BOOL)</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/using-the-scanner.html#void-didcancelupload"><tt class="docutils literal"><span class="pre">(void)didCancelUpload</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/using-the-scanner.html#use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> to upload files and update the UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../guides/using-the-scanner.html#void-didprogress-float-totalprogress"><tt class="docutils literal"><span class="pre">(void)didProgress:(float)totalProgress</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/using-the-scanner.html#void-didprogresswithmessage-nsstring-message"><tt class="docutils literal"><span class="pre">(void)didProgressWithMessage:(NSString</span> <span class="pre">*)message</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/using-the-scanner.html#void-didendupload"><tt class="docutils literal"><span class="pre">(void)didEndUpload</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/using-the-scanner.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/using-the-scanner.html#next-customize-the-ui">Next: Customize the UI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/style-the-module.html">Configuring the Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guides/style-the-module.html#screen-resources">Screen Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../guides/style-the-module.html#camera-screen">Camera Screen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/style-the-module.html#help-screen-1">Help Screen #1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/style-the-module.html#help-screen-2">Help Screen #2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/style-the-module.html#help-screen-3">Help Screen #3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/style-the-module.html#help-screen-4">Help Screen #4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/style-the-module.html#list-of-all-image-files">List of all image files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/style-the-module.html#list-of-all-text-resources">List of all text resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/style-the-module.html#use-the-giniconfiguration-to-customize-look-and-behavior-of-the-module">Use the <tt class="docutils literal"><span class="pre">GiniConfiguration</span></tt> to customize look and behavior of the module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../guides/style-the-module.html#options">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/style-the-module.html#colors">Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/style-the-module.html#fonts">Fonts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/style-the-module.html#texts">Texts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/style-the-module.html#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">0.91.99 (2015-10-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#bugfix">Bugfix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id2">0.91.97 (2015-10-15)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#features">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id3">0.91.89 (2015-10-05)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id4">Bugfix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id5">0.91.83 (2015-09-11)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id7">0.91.74 (2015-08-13)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#bugfixes">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id8">0.91.67 (2015-07-24)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id9">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id10">Bugfixes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../license.html#using-cocoapods">Using CocoaPods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html#manually">Manually</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Gini Vision SDK for iOS</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <p># Acknowledgements</p>
+<p>This application makes use of the following third party libraries:</p>
+<p>## Gini Vision</p>
+<p>Copyright (c) 2014, Gini GmbH
+All rights reserved.</p>
+<p>The Gini Vision Library is licensed through Gini GmbH (&#8220;Gini&#8221;) and may not be used, altered or copied in any way without explicit permission by Gini. The terms of usage are defined in a separate usage agreement between Gini and the licensee, where the licensee can gain access to a non-exclusive, non-transferable usage right which is restricted for the time of a contractual relationship between Gini and the licensee.</p>
+<p>## OpenCV</p>
+<p>IMPORTANT: READ BEFORE DOWNLOADING, COPYING, INSTALLING OR USING.</p>
+<p>By downloading, copying, installing or using the software you agree to this license. If you do not agree to this license, do not download, install, copy or use the software.</p>
+<p>### License Agreement
+For Open Source Computer Vision Library</p>
+<p>Copyright (C) 2000-2008, Intel Corporation
+All rights reserved.
+Copyright (C) 2009-2011, Willow Garage Inc.
+All rights reserved.
+Third party copyrights are property of their respective owners.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ul class="simple">
+<li>Redistribution&#8217;s of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+<li>Redistribution&#8217;s in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+<li>The name of the copyright holders may not be used to endorse or promote products derived from this software without specific prior written permission.</li>
+</ul>
+<p>This software is provided by the copyright holders and contributors &#8220;as is&#8221; and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed.
+In no event shall the Intel Corporation or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.</p>
+<p>## Kiwi</p>
+<p>Copyright (c) 2010, Allen Ding
+All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+<ol class="arabic simple">
+<li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+<li>Neither the name of Allen Ding nor the names of any contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &#8220;AS IS&#8221; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-19408970-13', 'gini.net');
+      ga('send', 'pageview');
+  </script>
+  
+</body>
+</html>

@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gini iOS Vision documentation &mdash; Gini Vision SDK for iOS 1.1.9 documentation</title>
+  <title>License &mdash; Gini Vision SDK for iOS 1.1.9 documentation</title>
   
 
   
@@ -52,8 +52,8 @@
   
 
   
-    <link rel="top" title="Gini Vision SDK for iOS 1.1.9 documentation" href="#"/>
-        <link rel="next" title="Getting started" href="guides/getting-started.html"/> 
+    <link rel="top" title="Gini Vision SDK for iOS 1.1.9 documentation" href="index.html"/>
+        <link rel="prev" title="Changelog" href="changelog.html"/> 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
@@ -66,7 +66,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="#" id="gini-logo">gini API</a>
+        <a href="index.html" id="gini-logo">gini API</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -79,7 +79,7 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul>
+            <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="guides/getting-started.html">Getting started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guides/getting-started.html#integrate-using-cocoapods">Integrate using CocoaPods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/getting-started.html#integrate-the-library-and-frameworks-manually">Integrate the library and frameworks manually</a></li>
@@ -155,9 +155,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">License</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="license.html#using-cocoapods">Using CocoaPods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="license.html#manually">Manually</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">License</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-cocoapods">Using CocoaPods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manually">Manually</a></li>
 </ul>
 </li>
 </ul>
@@ -172,7 +172,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Gini Vision SDK for iOS</a>
+        <a href="index.html">Gini Vision SDK for iOS</a>
       </nav>
 
 
@@ -181,9 +181,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Gini iOS Vision documentation</li>
+    <li>License</li>
       <li class="wy-breadcrumbs-aside">
         
       </li>
@@ -192,54 +192,86 @@
 </div>
           <div role="main">
             
-  <div class="section" id="gini-ios-vision-documentation">
-<h1>Gini iOS Vision documentation<a class="headerlink" href="#gini-ios-vision-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Gini provides an information extraction system for analyzing documents (e. g. invoices or
-contracts), specifically information such as the document sender or the amount to pay in an invoice.</p>
-<p>The Gini Vision library for iOS provides functionality to capture documents with mobile phones running the iOS operating
-system. The captured images are automatically enhanced and optimized on the device so they provide both the
-best results when used with the Gini API and an optimized user experience.</p>
+  <div class="section" id="license">
+<span id="guide-adding-licenses"></span><h1>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h1>
+<p>The Gini iOS Vision Library is licensed under a Private License and also
+integrates several third party libraries. To add all license notices and
+permissions required to your application you can either use the prebuild files
+provided by CocoaPods or you can add them manually.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Irrespective of the option you choose always make sure to ship all license notices and permissions with your application.</p>
 </div>
-<div class="section" id="table-of-contents">
-<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="guides/getting-started.html">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guides/getting-started.html#integrate-using-cocoapods">Integrate using CocoaPods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/getting-started.html#integrate-the-library-and-frameworks-manually">Integrate the library and frameworks manually</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/getting-started.html#set-the-linker-settings-manually">Set the linker settings manually</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/getting-started.html#next-use-the-scanner-activity">Next: Use the Scanner Activity</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="guides/using-the-scanner.html">Using the Scanner</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#start-the-image-capture">Start the image capture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#implement-and-use-the-ginivisiondelegate">Implement and use the <tt class="docutils literal"><span class="pre">GiniVisionDelegate</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> to upload files and update the UI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#next-customize-the-ui">Next: Customize the UI</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="guides/style-the-module.html">Configuring the Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guides/style-the-module.html#screen-resources">Screen Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/style-the-module.html#use-the-giniconfiguration-to-customize-look-and-behavior-of-the-module">Use the <tt class="docutils literal"><span class="pre">GiniConfiguration</span></tt> to customize look and behavior of the module</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.91.99 (2015-10-23)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.91.97 (2015-10-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.91.89 (2015-10-05)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.91.83 (2015-09-11)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.91.74 (2015-08-13)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.91.67 (2015-07-24)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">License</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="license.html#using-cocoapods">Using CocoaPods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="license.html#manually">Manually</a></li>
-</ul>
-</li>
-</ul>
+<div class="section" id="using-cocoapods">
+<h2>Using CocoaPods<a class="headerlink" href="#using-cocoapods" title="Permalink to this headline">¶</a></h2>
+<p>CocoaPods makes it easy for you to integrate licensing notices into your
+application. After installing or updating the SDK, CocoaPods generates two
+<tt class="docutils literal"><span class="pre">Acknowledgements</span></tt> files for each target specified in your Podfile. There is a
+markdown file, for general consumption, as well as a property list file that can
+be added to a settings bundle.</p>
+<p>All required licenses for the Gini iOS Vision Library will automatically be
+added to those files.</p>
+<p>For further information on how to use CocoaPods to display acknowledgements
+inside your app or in the Settings application refer to the <a class="reference external" href="https://github.com/CocoaPods/CocoaPods/wiki/Acknowledgements">CocoaPods Wiki on
+Github</a>.</p>
+</div>
+<div class="section" id="manually">
+<h2>Manually<a class="headerlink" href="#manually" title="Permalink to this headline">¶</a></h2>
+<p>If you prefer adding the licenses manually use the Markdown content provided
+here to satisfy all license requirements.</p>
+<div class="highlight-dtd"><div class="highlight"><pre># Acknowledgements
+
+This application makes use of the following third party libraries:
+
+## Gini Vision 
+
+Copyright (c) 2014, Gini GmbH
+All rights reserved.
+
+The Gini Vision Library is licensed through Gini GmbH (&quot;Gini&quot;) and may not be used, altered or copied in any way without explicit permission by Gini. The terms of usage are defined in a separate usage agreement between Gini and the licensee, where the licensee can gain access to a non-exclusive, non-transferable usage right which is restricted for the time of a contractual relationship between Gini and the licensee.
+
+## OpenCV
+
+IMPORTANT: READ BEFORE DOWNLOADING, COPYING, INSTALLING OR USING.
+
+By downloading, copying, installing or using the software you agree to this license. If you do not agree to this license, do not download, install, copy or use the software.
+
+### License Agreement
+For Open Source Computer Vision Library
+
+Copyright (C) 2000-2008, Intel Corporation
+All rights reserved.
+Copyright (C) 2009-2011, Willow Garage Inc.
+All rights reserved.
+Third party copyrights are property of their respective owners.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+* Redistribution&#39;s of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+* Redistribution&#39;s in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+* The name of the copyright holders may not be used to endorse or promote products derived from this software without specific prior written permission.
+
+This software is provided by the copyright holders and contributors &quot;as is&quot; and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed.
+In no event shall the Intel Corporation or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.
+
+## Kiwi
+
+Copyright (c) 2010, Allen Ding
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3.  Neither the name of Allen Ding nor the names of any contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</pre></div>
 </div>
 </div>
 </div>
@@ -250,8 +282,8 @@ best results when used with the Gini API and an optimized user experience.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="guides/getting-started.html" class="btn btn-neutral float-right" title="Getting started">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="changelog.html" class="btn btn-neutral" title="Changelog"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
