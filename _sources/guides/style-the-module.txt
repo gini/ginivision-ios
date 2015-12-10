@@ -80,7 +80,7 @@ Options
 * ``navigationBackButtonImage`` of type ``UIImage`` sets the background image for the navigation bar's back button.
 * ``choiceHeadingTextSize`` of type ``CGFloat`` sets the text size of the heading text in the choice screen.
 * ``uploadActivityIndicatorPosition`` of type ``GINIUploadActivityIndicatorPosition`` sets the position of the activity indicator in the upload screen.
-* ``customActivityIndicatorImage`` of type ``UIImage`` sets the image which will be used for the custom activity indicator. This image will shown rotating centered on the preview image in the upload screen.
+* ``customActivityIndicatorImage`` of type ``UIImage`` sets the image which will be used for the custom activity indicator. This image will be shown rotating centered on the preview image in the upload screen. ``uploadActivityIndicatorPosition`` must be set to ``GINIUploadActivityIndicatorPositionImageCenterCustom`` for the image to be used.
 * ``outlineWidth`` of type ``CGFloat`` sets the width of the document outline shown in the camera viewfinder.
 * ``helpButtonImage`` of type ``UIImage`` sets an image for the help button in the scanner's UINavigationBar.
 * ``helpCloseButtonPosition`` of type ``GINIHelpCloseButtonPosition`` sets the position of the close button in the help screen to the right or the left side.
