@@ -1,5 +1,5 @@
-Gini iOS Vision documentation
-=============================
+Gini Vision Library documentation
+=================================
 
 Introduction
 ------------
@@ -7,7 +7,7 @@ Introduction
 Gini provides an information extraction system for analyzing documents (e. g. invoices or
 contracts), specifically information such as the document sender or the amount to pay in an invoice.
 
-The Gini Vision library for iOS provides functionality to capture documents with mobile phones running the iOS operating
+The Gini Vision Library provides functionality to capture documents with mobile phones running the iOS operating
 system. The captured images are automatically enhanced and optimized on the device so they provide both the
 best results when used with the Gini API and an optimized user experience.
 
@@ -21,6 +21,7 @@ Table of contents
    guides/getting-started
    guides/using-the-scanner
    guides/style-the-module
+   guides/swift
    changelog
    license
 

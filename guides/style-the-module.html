@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuring the Module &mdash; Gini Vision SDK for iOS 1.1.9 documentation</title>
+  <title>Configuring the Module &mdash; Gini Vision Library for iOS 1.2.0 documentation</title>
   
 
   
@@ -22,7 +22,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:'../',
-        VERSION:'1.1.9',
+        VERSION:'1.2.0',
         COLLAPSE_INDEX:false,
         FILE_SUFFIX:'.html',
         HAS_SOURCE:  true
@@ -52,8 +52,8 @@
   
 
   
-    <link rel="top" title="Gini Vision SDK for iOS 1.1.9 documentation" href="../index.html"/>
-        <link rel="next" title="Changelog" href="../changelog.html"/>
+    <link rel="top" title="Gini Vision Library for iOS 1.2.0 documentation" href="../index.html"/>
+        <link rel="next" title="Swift Integration Guide" href="swift.html"/>
         <link rel="prev" title="Using the Scanner" href="using-the-scanner.html"/> 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -128,32 +128,38 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="swift.html">Swift Integration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="swift.html#bitcode">Bitcode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swift.html#bridging-header">Bridging header</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">0.91.99 (2015-10-23)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#bugfix">Bugfix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#bugfix">Bugfix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id1">0.91.99 (2015-10-23)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id2">0.91.97 (2015-10-15)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id2">Bugfix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id3">0.91.97 (2015-10-15)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id3">0.91.89 (2015-10-05)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id4">Bugfix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id4">0.91.89 (2015-10-05)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id5">0.91.83 (2015-09-11)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id5">Bugfix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">0.91.83 (2015-09-11)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id7">0.91.74 (2015-08-13)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#bugfixes">Bugfixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id7">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id8">0.91.74 (2015-08-13)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id8">0.91.67 (2015-07-24)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id9">Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id10">Bugfixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#bugfixes">Bugfixes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id9">0.91.67 (2015-07-24)</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id10">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id11">Bugfixes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a><ul>
@@ -173,7 +179,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Gini Vision SDK for iOS</a>
+        <a href="../index.html">Gini Vision Library for iOS</a>
       </nav>
 
 
@@ -195,10 +201,10 @@
             
   <div class="section" id="configuring-the-module">
 <span id="guide-style-the-module"></span><h1>Configuring the Module<a class="headerlink" href="#configuring-the-module" title="Permalink to this headline">¶</a></h1>
-<p>The Gini iOS Vision library is built with the option to adopt the styling regarding the needs of your CI. Therefore the UI ressources used by the Gini iOS Vision library can be replaced or customized. Furthermore specific options are given to change the behaviour of the Gini iOS Vision library.</p>
+<p>The Gini Vision Library is built with the option to adopt the styling regarding the needs of your CI. Therefore the UI resources used by the Gini Vision Library can be replaced or customized. Furthermore specific options are given to change the behavior of the Gini Vision Library.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">All configurations are optional. The Gini iOS Vision library will work out of the box with no configuration.</p>
+<p class="last">All configurations are optional. The Gini Vision Library will work out of the box with no configuration.</p>
 </div>
 <div class="section" id="screen-resources">
 <h2>Screen Resources<a class="headerlink" href="#screen-resources" title="Permalink to this headline">¶</a></h2>
@@ -250,23 +256,23 @@
 </div>
 <div class="section" id="use-the-giniconfiguration-to-customize-look-and-behavior-of-the-module">
 <h2>Use the <tt class="docutils literal"><span class="pre">GiniConfiguration</span></tt> to customize look and behavior of the module<a class="headerlink" href="#use-the-giniconfiguration-to-customize-look-and-behavior-of-the-module" title="Permalink to this headline">¶</a></h2>
-<p>To configure colors, fonts and more options the Gini iOS Vision library provides a <tt class="docutils literal"><span class="pre">GiniConfiguration</span></tt>. In order to start the scanner with your own configuration call <tt class="docutils literal"><span class="pre">captureImageWithViewController:delegate:configuration:</span></tt> on the <tt class="docutils literal"><span class="pre">GiniVision</span></tt> class. The following properties can be configured.</p>
+<p>To configure colors, fonts and more options the Gini Vision Library provides a <tt class="docutils literal"><span class="pre">GiniConfiguration</span></tt> singleton class. In order to start the scanner with your own configuration call <tt class="docutils literal"><span class="pre">captureImageWithViewController:delegate:configuration:</span></tt> on the <tt class="docutils literal"><span class="pre">GiniVision</span></tt> class. The following properties can be configured.</p>
 <div class="section" id="options">
 <h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">launchDocumentType</span></tt> of type <tt class="docutils literal"><span class="pre">GINIDocumentType</span></tt> skips the choice screen if it is different from <tt class="docutils literal"><span class="pre">GINIDocumentTypeDefault</span></tt> and starts the scanner with the provided document type.</li>
-<li><tt class="docutils literal"><span class="pre">showHelp</span></tt> of type <tt class="docutils literal"><span class="pre">BOOL</span></tt> shows the help screen directly after starting the Gini iOS Vision library.</li>
+<li><tt class="docutils literal"><span class="pre">showHelp</span></tt> of type <tt class="docutils literal"><span class="pre">BOOL</span></tt> shows the help screen directly after starting the Gini Vision Library.</li>
 <li><tt class="docutils literal"><span class="pre">disableInteractiveSwipeGesture</span></tt> of type <tt class="docutils literal"><span class="pre">BOOL</span></tt> disables swipe back gesture on navigation controller.</li>
-<li><tt class="docutils literal"><span class="pre">closeButtonImage</span></tt> of type <tt class="docutils literal"><span class="pre">UIImage</span></tt> sets an image for the close button. If image is not set text &#8220;Schließen&#8221; will be used instead.</li>
 <li><tt class="docutils literal"><span class="pre">navigationShadowImage</span></tt> of type <tt class="docutils literal"><span class="pre">UIImage</span></tt> sets an image for the navigation bar&#8217;s shadow. You can use the <tt class="docutils literal"><span class="pre">[GiniConfiguration</span> <span class="pre">imageWithColor:andSize:]</span></tt> helper method to create a monochrome shadow image. Can be used for example to create a one pixel thick line below the navigation bar.</li>
 <li><tt class="docutils literal"><span class="pre">navigationBackButtonImage</span></tt> of type <tt class="docutils literal"><span class="pre">UIImage</span></tt> sets the background image for the navigation bar&#8217;s back button.</li>
 <li><tt class="docutils literal"><span class="pre">choiceHeadingTextSize</span></tt> of type <tt class="docutils literal"><span class="pre">CGFloat</span></tt> sets the text size of the heading text in the choice screen.</li>
-<li><tt class="docutils literal"><span class="pre">uploadActivityIndicatorPosition</span></tt> of type <tt class="docutils literal"><span class="pre">GINIUploadActivityIndicatorPosition</span></tt> sets the position of the activity indicator in the upload screen.</li>
-<li><tt class="docutils literal"><span class="pre">customActivityIndicatorImage</span></tt> of type <tt class="docutils literal"><span class="pre">UIImage</span></tt> sets the image which will be used for the custom activity indicator. This image will be shown rotating centered on the preview image in the upload screen. <tt class="docutils literal"><span class="pre">uploadActivityIndicatorPosition</span></tt> must be set to <tt class="docutils literal"><span class="pre">GINIUploadActivityIndicatorPositionImageCenterCustom</span></tt> for the image to be used.</li>
 <li><tt class="docutils literal"><span class="pre">outlineWidth</span></tt> of type <tt class="docutils literal"><span class="pre">CGFloat</span></tt> sets the width of the document outline shown in the camera viewfinder.</li>
 <li><tt class="docutils literal"><span class="pre">helpButtonImage</span></tt> of type <tt class="docutils literal"><span class="pre">UIImage</span></tt> sets an image for the help button in the scanner&#8217;s UINavigationBar.</li>
 <li><tt class="docutils literal"><span class="pre">helpCloseButtonPosition</span></tt> of type <tt class="docutils literal"><span class="pre">GINIHelpCloseButtonPosition</span></tt> sets the position of the close button in the help screen to the right or the left side.</li>
 <li><tt class="docutils literal"><span class="pre">helpCloseButtonRemoveSpacing</span></tt> of type <tt class="docutils literal"><span class="pre">BOOL</span></tt> removes the spacing around the close button. Helpful when the button is on the left side to align it correctly with the other close buttons.</li>
+<li><tt class="docutils literal"><span class="pre">closeButtonImage</span></tt> of type <tt class="docutils literal"><span class="pre">UIImage</span></tt> sets an image for the close button. If image is not set text &#8220;Schließen&#8221; will be used instead.</li>
+<li><tt class="docutils literal"><span class="pre">uploadActivityIndicatorPosition</span></tt> of type <tt class="docutils literal"><span class="pre">GINIUploadActivityIndicatorPosition</span></tt> sets the position of the activity indicator in the upload screen.</li>
+<li><tt class="docutils literal"><span class="pre">customActivityIndicatorImage</span></tt> of type <tt class="docutils literal"><span class="pre">UIImage</span></tt> sets the image which will be used for the custom activity indicator. This image will be shown rotating centered on the preview image in the upload screen. <tt class="docutils literal"><span class="pre">uploadActivityIndicatorPosition</span></tt> must be set to <tt class="docutils literal"><span class="pre">GINIUploadActivityIndicatorPositionImageCenterCustom</span></tt> for the image to be used.</li>
 </ul>
 </div>
 <div class="section" id="colors">
@@ -279,6 +285,7 @@
 <li><tt class="docutils literal"><span class="pre">darkFontColor</span></tt> sets dark font color, it is used for regular text.</li>
 <li><tt class="docutils literal"><span class="pre">actionFontColor</span></tt> will be used in the future to highlight specific text.</li>
 <li><tt class="docutils literal"><span class="pre">backgroundColor</span></tt> sets the background color for all screens except the help screens.</li>
+<li><tt class="docutils literal"><span class="pre">outlineColor</span></tt> sets the color of the rectangular overlay of the camera view.</li>
 <li><tt class="docutils literal"><span class="pre">helpViewBackgroundColor</span></tt> sets the background color in the help screens.</li>
 <li><tt class="docutils literal"><span class="pre">uploadCancelButtonBackgroundColor</span></tt> sets the background color for the cancel button in the upload screen. If not set <tt class="docutils literal"><span class="pre">navigationTintColor</span></tt> is used.</li>
 </ul>
@@ -317,7 +324,9 @@
 <h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>The example considers the same structure <a class="reference internal" href="using-the-scanner.html#guide-using-the-scanner"><em>shown previously</em></a>.
 It shows all possible configurations and their <strong>default values</strong>.</p>
-<div class="highlight-obj-c"><div class="highlight"><pre><span class="k">@implementation</span> <span class="nc">MyViewController</span>
+<div class="highlight-obj-c"><div class="highlight"><pre><span class="c1">//</span>
+<span class="c1">// MyViewController.m</span>
+<span class="c1">//</span>
 
 <span class="p">-</span> <span class="p">(</span><span class="kt">IBAction</span><span class="p">)</span><span class="nf">scanDocument:</span><span class="p">(</span><span class="bp">UIButton</span> <span class="o">*</span><span class="p">)</span><span class="nv">sender</span> <span class="p">{</span>
     <span class="n">GiniConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[</span><span class="n">GiniConfiguration</span> <span class="n">new</span><span class="p">];</span>
@@ -326,15 +335,27 @@ It shows all possible configurations and their <strong>default values</strong>.<
     <span class="n">configuration</span><span class="p">.</span><span class="n">launchDocumentType</span> <span class="o">=</span> <span class="n">GINIDocumentTypeDefault</span><span class="p">;</span> <span class="c1">// Remember &#39;GINIDocumentTypeDefault&#39; does NOT skip the choice screen.</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">showHelp</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">disableInteractiveSwipeGesture</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">navigationShadowImage</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">navigationBackButtonImage</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">choiceHeadingTextSize</span> <span class="o">=</span> <span class="mf">34.0</span><span class="p">;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">outlineWidth</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">helpButtonImage</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">helpCloseButtonPosition</span> <span class="o">=</span> <span class="n">GINIHelpCloseButtonPositionNavBarRight</span><span class="p">;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">helpCloseButtonRemoveSpacing</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">closeButtonImage</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">uploadActivityIndicatorPosition</span> <span class="o">=</span> <span class="n">GINIUploadActivityIndicatorPositionNavBarLeft</span><span class="p">;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">customActivityIndicatorImage</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
 
     <span class="c1">// Colors</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">navigationTintColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:(</span><span class="mi">28</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">green</span><span class="p">:(</span><span class="mi">141</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">blue</span><span class="p">:(</span><span class="mi">214</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];</span>
-    <span class="n">configuration</span><span class="p">.</span><span class="n">lightFontColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">green</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">blue</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">navigationButtonsTintColor</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">lightFontColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">green</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">blue</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">darkFontColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:(</span><span class="mi">76</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">green</span><span class="p">:(</span><span class="mi">76</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">blue</span><span class="p">:(</span><span class="mi">76</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">actionFontColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:(</span><span class="mi">28</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">green</span><span class="p">:(</span><span class="mi">141</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">blue</span><span class="p">:(</span><span class="mi">214</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">green</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">blue</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">outlineColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:(</span><span class="mi">0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">green</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">blue</span><span class="p">:(</span><span class="mi">0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">helpViewBackgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">green</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">blue</span><span class="p">:(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">uploadCancelButtonBackgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:(</span><span class="mi">28</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">green</span><span class="p">:(</span><span class="mi">141</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">blue</span><span class="p">:(</span><span class="mi">214</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];</span>
 
     <span class="c1">// Fonts</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">navigationFont</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIFont</span> <span class="nl">fontWithName</span><span class="p">:</span><span class="s">@&quot;HelveticaNeue-Light&quot;</span> <span class="nl">size</span><span class="p">:</span><span class="mf">16.0</span><span class="p">];</span>
@@ -344,6 +365,9 @@ It shows all possible configurations and their <strong>default values</strong>.<
     <span class="c1">// Texts</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">choiceTitle</span> <span class="o">=</span> <span class="s">@&quot;Foto-Überweisung&quot;</span><span class="p">;</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">scannerTitle</span> <span class="o">=</span> <span class="s">@&quot;Foto-Überweisung&quot;</span><span class="p">;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">scannerTitleInvoice</span> <span class="o">=</span> <span class="s">@&quot;Foto-Überweisung&quot;</span><span class="p">;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">scannerTitleRemittance</span> <span class="o">=</span> <span class="s">@&quot;Foto-Überweisung&quot;</span><span class="p">;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">scannerTitleIntegratedRemittance</span> <span class="o">=</span> <span class="s">@&quot;Foto-Überweisung&quot;</span><span class="p">;</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">helpTitle</span> <span class="o">=</span> <span class="s">@&quot;Hilfe&quot;</span><span class="p">;</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">uploadTitle</span> <span class="o">=</span> <span class="s">@&quot;Foto-Überweisung&quot;</span><span class="p">;</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">choiceHeadingText</span> <span class="o">=</span> <span class="s">@&quot;Welcher Dokument-Typ?&quot;</span><span class="p">;</span>
@@ -355,11 +379,69 @@ It shows all possible configurations and their <strong>default values</strong>.<
     <span class="n">configuration</span><span class="p">.</span><span class="n">cameraAuthErrorTitle</span> <span class="o">=</span> <span class="s">@&quot;Kein Kamerazugriff erlaubt&quot;</span><span class="p">;</span>
     <span class="n">configuration</span><span class="p">.</span><span class="n">cameraAuthErrorText</span> <span class="o">=</span> <span class="s">@&quot;Bitte aktivieren Sie unter Einstellungen &gt; Datenschutz &gt; Kamera die Zugriffsrechte für diese Anwendung.&quot;</span><span class="p">;</span>
 
-    <span class="c1">// Call Gini iOS Vision library with configuration</span>
+    <span class="c1">// Call Gini Vision Library with configuration</span>
     <span class="p">[</span><span class="n">GiniVision</span> <span class="nl">captureImageWithViewController</span><span class="p">:</span><span class="nb">self</span> <span class="nl">delegate</span><span class="p">:</span><span class="nb">self</span> <span class="nl">configuration</span><span class="p">:</span><span class="n">configuration</span><span class="p">];</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-swift"><div class="highlight"><pre><span class="c1">//</span>
+<span class="c1">// MyViewController.swift</span>
+<span class="c1">//</span>
 
-<span class="k">@end</span>
+<span class="kr">@IBAction</span>
+<span class="kd">func</span> <span class="nf">scanDocument</span><span class="p">(</span><span class="n">sender</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">configuration</span> <span class="p">=</span> <span class="n">GiniConfiguration</span><span class="p">()</span>
+
+    <span class="c1">// Options</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">launchDocumentType</span> <span class="p">=</span> <span class="p">.</span><span class="n">Default</span> <span class="c1">// Remember &#39;GINIDocumentTypeDefault&#39; does NOT skip the choice screen.</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">showHelp</span> <span class="p">=</span> <span class="kc">false</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">disableInteractiveSwipeGesture</span> <span class="p">=</span> <span class="kc">false</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">navigationShadowImage</span> <span class="p">=</span> <span class="kc">nil</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">navigationBackButtonImage</span> <span class="p">=</span> <span class="kc">nil</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">choiceHeadingTextSize</span> <span class="p">=</span> <span class="mf">34.0</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">outlineWidth</span> <span class="p">=</span> <span class="mf">5.0</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">helpButtonImage</span> <span class="p">=</span> <span class="kc">nil</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">helpCloseButtonPosition</span> <span class="p">=</span> <span class="p">.</span><span class="n">NavBarRight</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">helpCloseButtonRemoveSpacing</span> <span class="p">=</span> <span class="kc">false</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">closeButtonImage</span> <span class="p">=</span> <span class="kc">nil</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">uploadActivityIndicatorPosition</span> <span class="p">=</span> <span class="p">.</span><span class="n">NavBarLeft</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">customActivityIndicatorImage</span> <span class="p">=</span> <span class="kc">nil</span>
+
+    <span class="c1">// Colors</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">navigationTintColor</span> <span class="p">=</span> <span class="bp">UIColor</span><span class="p">(</span><span class="n">red</span><span class="p">:</span> <span class="p">(</span><span class="mi">28</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">green</span><span class="p">:</span> <span class="p">(</span><span class="mi">141</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">blue</span><span class="p">:</span> <span class="p">(</span><span class="mi">214</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">alpha</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">navigationButtonsTintColor</span> <span class="p">=</span> <span class="kc">nil</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">lightFontColor</span> <span class="p">=</span> <span class="bp">UIColor</span><span class="p">(</span><span class="n">red</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">green</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">blue</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">alpha</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">darkFontColor</span> <span class="p">=</span> <span class="bp">UIColor</span><span class="p">(</span><span class="n">red</span><span class="p">:</span> <span class="p">(</span><span class="mi">76</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">green</span><span class="p">:</span> <span class="p">(</span><span class="mi">76</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">blue</span><span class="p">:</span> <span class="p">(</span><span class="mi">76</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">alpha</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">actionFontColor</span> <span class="p">=</span> <span class="bp">UIColor</span><span class="p">(</span><span class="n">red</span><span class="p">:</span> <span class="p">(</span><span class="mi">28</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">green</span><span class="p">:</span> <span class="p">(</span><span class="mi">141</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">blue</span><span class="p">:</span> <span class="p">(</span><span class="mi">214</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">alpha</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="bp">UIColor</span><span class="p">(</span><span class="n">red</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">green</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">blue</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">alpha</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">outlineColor</span> <span class="p">=</span> <span class="bp">UIColor</span><span class="p">(</span><span class="n">red</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">green</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">blue</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">alpha</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">helpViewBackgroundColor</span> <span class="p">=</span> <span class="bp">UIColor</span><span class="p">(</span><span class="n">red</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">green</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">blue</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">alpha</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">uploadCancelButtonBackgroundColor</span> <span class="p">=</span> <span class="bp">UIColor</span><span class="p">(</span><span class="n">red</span><span class="p">:</span> <span class="p">(</span><span class="mi">28</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">green</span><span class="p">:</span> <span class="p">(</span><span class="mi">141</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">blue</span><span class="p">:</span> <span class="p">(</span><span class="mi">214</span><span class="o">/</span><span class="mf">255.0</span><span class="p">),</span> <span class="n">alpha</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="c1">// Fonts</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">navigationFont</span> <span class="p">=</span> <span class="bp">UIFont</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;HelveticaNeue-Light&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="mf">16.0</span><span class="p">)</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">textFont</span> <span class="p">=</span> <span class="bp">UIFont</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;HelveticaNeue&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="mf">16.0</span><span class="p">)</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">buttonFont</span> <span class="p">=</span> <span class="bp">UIFont</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;HelveticaNeue-Bold&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="mf">16.0</span><span class="p">)</span>
+
+    <span class="c1">// Texts</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">choiceTitle</span> <span class="p">=</span> <span class="s">&quot;Foto-Überweisung&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">scannerTitle</span> <span class="p">=</span> <span class="s">&quot;Foto-Überweisung&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">scannerTitleInvoice</span> <span class="p">=</span> <span class="s">&quot;Foto-Überweisung&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">scannerTitleRemittance</span> <span class="p">=</span> <span class="s">&quot;Foto-Überweisung&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">scannerTitleIntegratedRemittance</span> <span class="p">=</span> <span class="s">&quot;Foto-Überweisung&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">helpTitle</span> <span class="p">=</span> <span class="s">&quot;Hilfe&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">uploadTitle</span> <span class="p">=</span> <span class="s">&quot;Foto-Überweisung&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">choiceHeadingText</span> <span class="p">=</span> <span class="s">&quot;Welcher Dokument-Typ?&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">help1Text</span> <span class="p">=</span> <span class="s">&quot;Foto wird automatisch ausgelöst sobald Dokument an Ecken ausgerichtet ist.&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">help2Text</span> <span class="p">=</span> <span class="s">&quot;Gerät parallel über das Dokument halten.&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">help3Text</span> <span class="p">=</span> <span class="s">&quot;Dokument auf dunklen Hintergrund platzieren.&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">help4Text</span> <span class="p">=</span> <span class="s">&quot;Dokument muss glatt sein, damit Text gut ausgelesen werden kann.&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">uploadCancelButtonTitle</span> <span class="p">=</span> <span class="s">&quot;Abbrechen&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">cameraAuthErrorTitle</span> <span class="p">=</span> <span class="s">&quot;Kein Kamerazugriff erlaubt&quot;</span>
+    <span class="n">configuration</span><span class="p">.</span><span class="n">cameraAuthErrorText</span> <span class="p">=</span> <span class="s">&quot;Bitte aktivieren Sie unter Einstellungen &gt; Datenschutz &gt; Kamera die Zugriffsrechte für diese Anwendung.&quot;</span>
+
+    <span class="n">GiniVision</span><span class="p">.</span><span class="n">captureImageWithViewController</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">delegate</span><span class="p">:</span> <span class="kc">self</span><span class="p">,</span> <span class="n">configuration</span><span class="p">:</span> <span class="n">configuration</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -372,7 +454,7 @@ It shows all possible configurations and their <strong>default values</strong>.<
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../changelog.html" class="btn btn-neutral float-right" title="Changelog">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="swift.html" class="btn btn-neutral float-right" title="Swift Integration Guide">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="using-the-scanner.html" class="btn btn-neutral" title="Using the Scanner"><span class="fa fa-arrow-circle-left"></span> Previous</a>

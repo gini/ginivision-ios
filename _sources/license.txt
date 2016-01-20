@@ -4,7 +4,7 @@
 License
 =======
 
-The Gini iOS Vision Library is licensed under a Private License and also
+The Gini Vision Library is licensed under a Private License and also
 integrates several third party libraries. To add all license notices and
 permissions required to your application you can either use the prebuild files
 provided by CocoaPods or you can add them manually.
@@ -20,7 +20,7 @@ application. After installing or updating the SDK, CocoaPods generates two
 markdown file, for general consumption, as well as a property list file that can
 be added to a settings bundle.
 
-All required licenses for the Gini iOS Vision Library will automatically be
+All required licenses for the Gini Vision Library will automatically be
 added to those files.
 
 For further information on how to use CocoaPods to display acknowledgements

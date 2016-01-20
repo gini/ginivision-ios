@@ -16,17 +16,20 @@ capturing process. The arguments to this method call are:
   view controller which started the image capturing.
 * An instance of an object that implements the ``GiniVisionDelegate`` protocol. This delegate is
   called during several steps of the image capturing and gets the results of the image capturing.
-* *(optional)* A ``GiniConfiguration`` object to :ref:`cutomize the look and behaviour <guide-style-the-module>` of the Gini Vision iOS library.  
+* *(optional)* A ``GiniConfiguration`` object to :ref:`customize the look and behavior <guide-style-the-module>` of the Gini Vision Library.  
 
 The following example implements a callback for a touch event on a UIButton. In this callback, the
 image capturing is started.
 
 .. code-block:: obj-c
+    
+    //
+    // MyViewController.m
+    //
 
     #import <GiniVision/GiniVision.h>
 
     @interface MyViewController () <GiniVisionDelegate>
-    - (IBAction) scanDocument:(UIButton *)sender;
     @end
 
     @implementation MyViewController
@@ -36,6 +39,28 @@ image capturing is started.
     }
 
     @end
+
+.. code-block:: swift
+
+    //
+    // Bridging-Header.h
+    //
+
+    #import <GiniVision/GiniVision.h>
+
+
+    //
+    // MyViewController.swift
+    //
+
+    class MyViewController: UIViewController, GiniVisionDelegate {
+
+        @IBAction
+        func scanDocument(sender: AnyObject) {
+            GiniVision.captureImageWithViewController(self, delegate: self)
+        }
+
+    }
 
 .. warning:: You really have to call this method with the view controller that is currently
              displayed. If the given view controller isn't displayed currently, the framework
@@ -90,8 +115,8 @@ Called when the user cancels the upload process.
 Use the ``GINIVisionUploadDelegate`` to upload files and update the UI
 ======================================================================
 
-Your application is responsible to upload the captured document, for example with the help of the
-`Gini SDK for iOS <http://developer.gini.net/gini-sdk-ios/>`_. Nevertheless, the Gini Vision library
+Your application is responsible for uploading the captured document, for example with the help of the
+`Gini SDK for iOS <http://developer.gini.net/gini-sdk-ios/>`_. Nevertheless, the Gini Vision Library
 displays an optimized and user-tested UI during the upload. When your application gets informed
 that a document is captured, it gets also an instance of the upload delegate. You can call several
 methods on this delegate in order to update the UI to reflect the current update status.
@@ -119,6 +144,10 @@ Example
 The following example is based on the example above and shows how to use the ``GINIVisionUploadDelegate`` after a document has been captured and enhanced.
 
 .. code-block:: obj-c
+    
+    //
+    // MyViewController.m
+    //
 
     @implementation MyViewController
 
@@ -141,8 +170,36 @@ The following example is based on the example above and shows how to use the ``G
 
     @end
 
+.. code-block:: swift
+    
+    //
+    // MyViewController.swift
+    //
+
+    class MyViewController: UIViewController, GiniVisionDelegate {
+
+        // Start image capturing and set delegate as seen above
+        @IBAction
+        func scanDocument(sender: AnyObject) {
+            GiniVision.captureImageWithViewController(self, delegate: self)
+        }
+
+        // MARK: GiniVisionDelegate method
+        func didScan(document: UIImage!, documentType docType: GINIDocumentType, uploadDelegate delegate: GINIVisionUploadDelegate!) {
+
+            /* Implement the Gini SDK for iOS or your custom upload to send the scanned and enhanced document to be processed. */
+
+            // Inform the delegate about the progress of the uploading process, so the UI gets updated properly.
+            delegate.didProgressWithMessage("Analyzing document")
+
+            // Inform the delegate that the upload ended, the UI is then switched back to your application's UI.
+            delegate.didEndUpload()
+        }
+
+    }
+
 Next: Customize the UI
 ======================
 
-After you have successfully integrated the Gini Vision library for iOS with the Gini SDK you can
+After you have successfully integrated the Gini Vision Library with the Gini SDK you can
 customize your UI according to your CI. Learn next :ref:`how to style the module <guide-style-the-module>`.

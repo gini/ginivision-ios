@@ -2,6 +2,14 @@
 Changelog
 =========
 
+{{version_and_date}}
+
+Bugfix
+------
+
+- Added alternative to motion manager if it is not available on the device.
+
+
 0.91.99 (2015-10-23)
 ====================
 

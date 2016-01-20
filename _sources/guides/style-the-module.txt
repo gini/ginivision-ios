@@ -4,9 +4,9 @@
 Configuring the Module
 ======================
 
-The Gini iOS Vision library is built with the option to adopt the styling regarding the needs of your CI. Therefore the UI ressources used by the Gini iOS Vision library can be replaced or customized. Furthermore specific options are given to change the behaviour of the Gini iOS Vision library.
+The Gini Vision Library is built with the option to adopt the styling regarding the needs of your CI. Therefore the UI resources used by the Gini Vision Library can be replaced or customized. Furthermore specific options are given to change the behavior of the Gini Vision Library.
 
-.. note:: All configurations are optional. The Gini iOS Vision library will work out of the box with no configuration.
+.. note:: All configurations are optional. The Gini Vision Library will work out of the box with no configuration.
 
 Screen Resources
 ================
@@ -67,24 +67,24 @@ Find all configurable text resources in the :ref:`Texts section <configurable-te
 Use the ``GiniConfiguration`` to customize look and behavior of the module
 ==========================================================================
 
-To configure colors, fonts and more options the Gini iOS Vision library provides a ``GiniConfiguration``. In order to start the scanner with your own configuration call ``captureImageWithViewController:delegate:configuration:`` on the ``GiniVision`` class. The following properties can be configured.
+To configure colors, fonts and more options the Gini Vision Library provides a ``GiniConfiguration`` singleton class. In order to start the scanner with your own configuration call ``captureImageWithViewController:delegate:configuration:`` on the ``GiniVision`` class. The following properties can be configured.
 
 Options
 -------
 
 * ``launchDocumentType`` of type ``GINIDocumentType`` skips the choice screen if it is different from ``GINIDocumentTypeDefault`` and starts the scanner with the provided document type.
-* ``showHelp`` of type ``BOOL`` shows the help screen directly after starting the Gini iOS Vision library.
+* ``showHelp`` of type ``BOOL`` shows the help screen directly after starting the Gini Vision Library.
 * ``disableInteractiveSwipeGesture`` of type ``BOOL`` disables swipe back gesture on navigation controller.
-* ``closeButtonImage`` of type ``UIImage`` sets an image for the close button. If image is not set text "Schließen" will be used instead.
 * ``navigationShadowImage`` of type ``UIImage`` sets an image for the navigation bar's shadow. You can use the ``[GiniConfiguration imageWithColor:andSize:]`` helper method to create a monochrome shadow image. Can be used for example to create a one pixel thick line below the navigation bar.
 * ``navigationBackButtonImage`` of type ``UIImage`` sets the background image for the navigation bar's back button.
 * ``choiceHeadingTextSize`` of type ``CGFloat`` sets the text size of the heading text in the choice screen.
-* ``uploadActivityIndicatorPosition`` of type ``GINIUploadActivityIndicatorPosition`` sets the position of the activity indicator in the upload screen.
-* ``customActivityIndicatorImage`` of type ``UIImage`` sets the image which will be used for the custom activity indicator. This image will be shown rotating centered on the preview image in the upload screen. ``uploadActivityIndicatorPosition`` must be set to ``GINIUploadActivityIndicatorPositionImageCenterCustom`` for the image to be used.
 * ``outlineWidth`` of type ``CGFloat`` sets the width of the document outline shown in the camera viewfinder.
 * ``helpButtonImage`` of type ``UIImage`` sets an image for the help button in the scanner's UINavigationBar.
 * ``helpCloseButtonPosition`` of type ``GINIHelpCloseButtonPosition`` sets the position of the close button in the help screen to the right or the left side.
 * ``helpCloseButtonRemoveSpacing`` of type ``BOOL`` removes the spacing around the close button. Helpful when the button is on the left side to align it correctly with the other close buttons.
+* ``closeButtonImage`` of type ``UIImage`` sets an image for the close button. If image is not set text "Schließen" will be used instead.
+* ``uploadActivityIndicatorPosition`` of type ``GINIUploadActivityIndicatorPosition`` sets the position of the activity indicator in the upload screen.
+* ``customActivityIndicatorImage`` of type ``UIImage`` sets the image which will be used for the custom activity indicator. This image will be shown rotating centered on the preview image in the upload screen. ``uploadActivityIndicatorPosition`` must be set to ``GINIUploadActivityIndicatorPositionImageCenterCustom`` for the image to be used.
 
 Colors
 ------
@@ -97,6 +97,7 @@ All colors are of type ``UIColor``.
 * ``darkFontColor`` sets dark font color, it is used for regular text.
 * ``actionFontColor`` will be used in the future to highlight specific text.
 * ``backgroundColor`` sets the background color for all screens except the help screens.
+* ``outlineColor`` sets the color of the rectangular overlay of the camera view.
 * ``helpViewBackgroundColor`` sets the background color in the help screens.
 * ``uploadCancelButtonBackgroundColor`` sets the background color for the cancel button in the upload screen. If not set ``navigationTintColor`` is used.
 
@@ -139,25 +140,39 @@ The example considers the same structure :ref:`shown previously <guide-using-the
 It shows all possible configurations and their **default values**.
 
 .. code-block:: obj-c
-
-    @implementation MyViewController
+    
+    //
+    // MyViewController.m
+    //
 
     - (IBAction)scanDocument:(UIButton *)sender {
         GiniConfiguration *configuration = [GiniConfiguration new];
-        
+    
         // Options
         configuration.launchDocumentType = GINIDocumentTypeDefault; // Remember 'GINIDocumentTypeDefault' does NOT skip the choice screen.
         configuration.showHelp = NO;
         configuration.disableInteractiveSwipeGesture = NO;
+        configuration.navigationShadowImage = nil;
+        configuration.navigationBackButtonImage = nil;
+        configuration.choiceHeadingTextSize = 34.0;
+        configuration.outlineWidth = 5.0;
+        configuration.helpButtonImage = nil;
+        configuration.helpCloseButtonPosition = GINIHelpCloseButtonPositionNavBarRight;
+        configuration.helpCloseButtonRemoveSpacing = NO;
         configuration.closeButtonImage = nil;
+        configuration.uploadActivityIndicatorPosition = GINIUploadActivityIndicatorPositionNavBarLeft;
+        configuration.customActivityIndicatorImage = nil;
         
         // Colors
         configuration.navigationTintColor = [UIColor colorWithRed:(28/255.0) green:(141/255.0) blue:(214/255.0) alpha:1.0];
-        configuration.lightFontColor = [UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1.0];;
+        configuration.navigationButtonsTintColor = nil;
+        configuration.lightFontColor = [UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1.0];
         configuration.darkFontColor = [UIColor colorWithRed:(76/255.0) green:(76/255.0) blue:(76/255.0) alpha:1.0];
         configuration.actionFontColor = [UIColor colorWithRed:(28/255.0) green:(141/255.0) blue:(214/255.0) alpha:1.0];
         configuration.backgroundColor = [UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1.0];
+        configuration.outlineColor = [UIColor colorWithRed:(0/255.0) green:(255/255.0) blue:(0/255.0) alpha:1.0];
         configuration.helpViewBackgroundColor = [UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1.0];
+        configuration.uploadCancelButtonBackgroundColor = [UIColor colorWithRed:(28/255.0) green:(141/255.0) blue:(214/255.0) alpha:1.0];
         
         // Fonts
         configuration.navigationFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0];
@@ -167,6 +182,9 @@ It shows all possible configurations and their **default values**.
         // Texts
         configuration.choiceTitle = @"Foto-Überweisung";
         configuration.scannerTitle = @"Foto-Überweisung";
+        configuration.scannerTitleInvoice = @"Foto-Überweisung";
+        configuration.scannerTitleRemittance = @"Foto-Überweisung";
+        configuration.scannerTitleIntegratedRemittance = @"Foto-Überweisung";
         configuration.helpTitle = @"Hilfe";
         configuration.uploadTitle = @"Foto-Überweisung";
         configuration.choiceHeadingText = @"Welcher Dokument-Typ?";
@@ -178,9 +196,68 @@ It shows all possible configurations and their **default values**.
         configuration.cameraAuthErrorTitle = @"Kein Kamerazugriff erlaubt";
         configuration.cameraAuthErrorText = @"Bitte aktivieren Sie unter Einstellungen > Datenschutz > Kamera die Zugriffsrechte für diese Anwendung.";
         
-        // Call Gini iOS Vision library with configuration
+        // Call Gini Vision Library with configuration
         [GiniVision captureImageWithViewController:self delegate:self configuration:configuration];
     }
 
-    @end
+.. code-block:: swift
+
+    //
+    // MyViewController.swift
+    //
+
+    @IBAction
+    func scanDocument(sender: AnyObject) {
+        let configuration = GiniConfiguration()
+        
+        // Options
+        configuration.launchDocumentType = .Default // Remember 'GINIDocumentTypeDefault' does NOT skip the choice screen.
+        configuration.showHelp = false
+        configuration.disableInteractiveSwipeGesture = false
+        configuration.navigationShadowImage = nil
+        configuration.navigationBackButtonImage = nil
+        configuration.choiceHeadingTextSize = 34.0
+        configuration.outlineWidth = 5.0
+        configuration.helpButtonImage = nil
+        configuration.helpCloseButtonPosition = .NavBarRight
+        configuration.helpCloseButtonRemoveSpacing = false
+        configuration.closeButtonImage = nil
+        configuration.uploadActivityIndicatorPosition = .NavBarLeft
+        configuration.customActivityIndicatorImage = nil
+        
+        // Colors
+        configuration.navigationTintColor = UIColor(red: (28/255.0), green: (141/255.0), blue: (214/255.0), alpha: 1.0)
+        configuration.navigationButtonsTintColor = nil
+        configuration.lightFontColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
+        configuration.darkFontColor = UIColor(red: (76/255.0), green: (76/255.0), blue: (76/255.0), alpha: 1.0)
+        configuration.actionFontColor = UIColor(red: (28/255.0), green: (141/255.0), blue: (214/255.0), alpha: 1.0)
+        configuration.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
+        configuration.outlineColor = UIColor(red: (0/255.0), green: (255/255.0), blue: (0/255.0), alpha: 1.0)
+        configuration.helpViewBackgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
+        configuration.uploadCancelButtonBackgroundColor = UIColor(red: (28/255.0), green: (141/255.0), blue: (214/255.0), alpha: 1.0)
+        
+        // Fonts
+        configuration.navigationFont = UIFont(name: "HelveticaNeue-Light", size: 16.0)
+        configuration.textFont = UIFont(name: "HelveticaNeue", size: 16.0)
+        configuration.buttonFont = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
+        
+        // Texts
+        configuration.choiceTitle = "Foto-Überweisung"
+        configuration.scannerTitle = "Foto-Überweisung"
+        configuration.scannerTitleInvoice = "Foto-Überweisung"
+        configuration.scannerTitleRemittance = "Foto-Überweisung"
+        configuration.scannerTitleIntegratedRemittance = "Foto-Überweisung"
+        configuration.helpTitle = "Hilfe"
+        configuration.uploadTitle = "Foto-Überweisung"
+        configuration.choiceHeadingText = "Welcher Dokument-Typ?"
+        configuration.help1Text = "Foto wird automatisch ausgelöst sobald Dokument an Ecken ausgerichtet ist."
+        configuration.help2Text = "Gerät parallel über das Dokument halten."
+        configuration.help3Text = "Dokument auf dunklen Hintergrund platzieren."
+        configuration.help4Text = "Dokument muss glatt sein, damit Text gut ausgelesen werden kann."
+        configuration.uploadCancelButtonTitle = "Abbrechen"
+        configuration.cameraAuthErrorTitle = "Kein Kamerazugriff erlaubt"
+        configuration.cameraAuthErrorText = "Bitte aktivieren Sie unter Einstellungen > Datenschutz > Kamera die Zugriffsrechte für diese Anwendung."
+        
+        GiniVision.captureImageWithViewController(self, delegate: self, configuration: configuration)
+    }
 
