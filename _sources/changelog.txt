@@ -2,7 +2,13 @@
 Changelog
 =========
 
-{{version_and_date}}
+0.91.139 (27-01-2016)
+=====================
+
+Features
+--------
+
+- Allow default system fonts.
 
 Bugfix
 ------

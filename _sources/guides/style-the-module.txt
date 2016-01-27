@@ -110,6 +110,8 @@ All fonts are of type ``UIFont``. Therefore size and font family can be set.
 * ``textFont`` sets font for regular text e.g. text below help images.
 * ``buttonFont`` sets font for regular button titles.
 
+.. note:: To use the default iOS system font set the font attribute to ``nil``.
+
 .. _configurable-texts:
 
 Texts
