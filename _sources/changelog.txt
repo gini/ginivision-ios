@@ -2,6 +2,15 @@
 Changelog
 =========
 
+0.91.145 (12-02-2016)
+=====================
+
+Bugfixes
+--------
+
+- Flash animation fixed to cover only the camera preview
+- Black borders removed from the preview image
+
 0.91.139 (27-01-2016)
 =====================
 
