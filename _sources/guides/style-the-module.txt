@@ -75,6 +75,7 @@ Options
 * ``launchDocumentType`` of type ``GINIDocumentType`` skips the choice screen if it is different from ``GINIDocumentTypeDefault`` and starts the scanner with the provided document type.
 * ``showHelp`` of type ``BOOL`` shows the help screen directly after starting the Gini Vision Library.
 * ``disableInteractiveSwipeGesture`` of type ``BOOL`` disables swipe back gesture on navigation controller.
+* ``createJPEGDocumentWithMetaData`` of type ``BOOL`` additionally returns a data object containing the image and meta information about the image.
 * ``navigationShadowImage`` of type ``UIImage`` sets an image for the navigation bar's shadow. You can use the ``[GiniConfiguration imageWithColor:andSize:]`` helper method to create a monochrome shadow image. Can be used for example to create a one pixel thick line below the navigation bar.
 * ``navigationBackButtonImage`` of type ``UIImage`` sets the background image for the navigation bar's back button.
 * ``choiceHeadingTextSize`` of type ``CGFloat`` sets the text size of the heading text in the choice screen.
@@ -154,6 +155,7 @@ It shows all possible configurations and their **default values**.
         configuration.launchDocumentType = GINIDocumentTypeDefault; // Remember 'GINIDocumentTypeDefault' does NOT skip the choice screen.
         configuration.showHelp = NO;
         configuration.disableInteractiveSwipeGesture = NO;
+        configuration.createJPEGDocumentWithMetaData = NO;
         configuration.navigationShadowImage = nil;
         configuration.navigationBackButtonImage = nil;
         configuration.choiceHeadingTextSize = 34.0;
@@ -216,6 +218,7 @@ It shows all possible configurations and their **default values**.
         configuration.launchDocumentType = .Default // Remember 'GINIDocumentTypeDefault' does NOT skip the choice screen.
         configuration.showHelp = false
         configuration.disableInteractiveSwipeGesture = false
+        configuration.createJPEGDocumentWithMetaData = false
         configuration.navigationShadowImage = nil
         configuration.navigationBackButtonImage = nil
         configuration.choiceHeadingTextSize = 34.0

@@ -91,10 +91,11 @@
 <li class="toctree-l1"><a class="reference internal" href="guides/using-the-scanner.html">Using the Scanner</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#start-the-image-capture">Start the image capture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#implement-and-use-the-ginivisiondelegate">Implement and use the <tt class="docutils literal"><span class="pre">GiniVisionDelegate</span></tt></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="guides/using-the-scanner.html#didscan-uiimage-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate"><tt class="docutils literal"><span class="pre">didScan:(UIImage</span> <span class="pre">*)</span> <span class="pre">documentType:(GINIDocumentType)</span> <span class="pre">uploadDelegate:(id&lt;GINIUploadDelegate&gt;)</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/using-the-scanner.html#didscan-uiimage-documentjpegdata-nsdata-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate"><tt class="docutils literal"><span class="pre">didScan:(UIImage</span> <span class="pre">*)</span> <span class="pre">documentJPEGData:(NSData</span> <span class="pre">*)</span> <span class="pre">documentType:(GINIDocumentType)</span> <span class="pre">uploadDelegate:(id&lt;GINIUploadDelegate&gt;)</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/using-the-scanner.html#void-didscanoriginal-uiimage"><tt class="docutils literal"><span class="pre">(void)didScanOriginal:(UIImage</span> <span class="pre">*)</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/using-the-scanner.html#void-didfinishcapturing-bool"><tt class="docutils literal"><span class="pre">(void)didFinishCapturing:(BOOL)</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/using-the-scanner.html#void-didcancelupload"><tt class="docutils literal"><span class="pre">(void)didCancelUpload</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/using-the-scanner.html#meta-information-tags">Meta Information Tags</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="guides/using-the-scanner.html#use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> to upload files and update the UI</a><ul>
@@ -134,38 +135,43 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.91.145 (12-02-2016)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#bugfixes">Bugfixes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">0.91.139 (27-01-2016)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.91.163 (24-02-2016)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bugfix">Bugfix</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">0.91.99 (2015-10-23)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Bugfix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.91.145 (12-02-2016)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bugfixes">Bugfixes</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">0.91.97 (2015-10-15)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.91.139 (27-01-2016)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Bugfix</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">0.91.89 (2015-10-05)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Bugfix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">0.91.99 (2015-10-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Bugfix</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">0.91.83 (2015-09-11)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id10">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">0.91.97 (2015-10-15)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Features</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">0.91.74 (2015-08-13)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id12">Bugfixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">0.91.89 (2015-10-05)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Bugfix</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id13">0.91.67 (2015-07-24)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id14">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">0.91.83 (2015-09-11)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">0.91.74 (2015-08-13)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id15">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">0.91.67 (2015-07-24)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Bugfixes</a></li>
 </ul>
 </li>
 </ul>
@@ -210,62 +216,77 @@
   <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>0.91.145 (12-02-2016)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="bugfixes">
-<h3>Bugfixes<a class="headerlink" href="#bugfixes" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Flash animation fixed to cover only the camera preview</li>
-<li>Black borders removed from the preview image</li>
-</ul>
-</div>
-</div>
-<div class="section" id="id2">
-<h2>0.91.139 (27-01-2016)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>0.91.163 (24-02-2016)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="features">
 <h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Allow default system fonts.</li>
+<li>Added optional JPEG with meta information to module output to further improve detection quality of documents.</li>
 </ul>
 </div>
 <div class="section" id="bugfix">
 <h3>Bugfix<a class="headerlink" href="#bugfix" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Added alternative to motion manager if it is not available on the device.</li>
+<li>User instruction overlay images on camera screen centered to allow differently sized images.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>0.91.145 (12-02-2016)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bugfixes">
+<h3>Bugfixes<a class="headerlink" href="#bugfixes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Flash animation fixed to cover only the camera preview.</li>
+<li>Black borders removed from the preview image.</li>
 </ul>
 </div>
 </div>
 <div class="section" id="id3">
-<h2>0.91.99 (2015-10-23)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>0.91.139 (27-01-2016)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id4">
-<h3>Bugfix<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3>Features<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Allow default system fonts.</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>Bugfix<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added alternative to motion manager if it is not available on the device.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>0.91.99 (2015-10-23)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>Bugfix<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>CFBundleExecutable removed, which caused Apple to reject apps, because the SDK has no executable.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id5">
-<h2>0.91.97 (2015-10-15)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id6">
-<h3>Features<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h2>0.91.97 (2015-10-15)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>Features<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Navigation bar button help item customizable.</li>
 <li>Navigation bar button help close item customizable: left, right, remove spacing.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id7">
-<h2>0.91.89 (2015-10-05)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id8">
-<h3>Bugfix<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h2>0.91.89 (2015-10-05)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h3>Bugfix<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Back button title was shown on iOS7 when starting the scanner directly.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id9">
-<h2>0.91.83 (2015-09-11)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id10">
-<h3>Features<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h2>0.91.83 (2015-09-11)<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h3>Features<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Document outline width customizable.</li>
 <li>Upload activity indicator customizable: top left, image center, image center custom rotating image.</li>
@@ -274,26 +295,26 @@
 </ul>
 </div>
 </div>
-<div class="section" id="id11">
-<h2>0.91.74 (2015-08-13)<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id12">
-<h3>Bugfixes<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h2>0.91.74 (2015-08-13)<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id15">
+<h3>Bugfixes<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>State machine compares last states before capturing to continue with the most common one.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id13">
-<h2>0.91.67 (2015-07-24)<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id14">
-<h3>Features<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h2>0.91.67 (2015-07-24)<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id17">
+<h3>Features<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Configurable outline for camera overlay.</li>
 <li>README.md shortened and points to the documentation for details.</li>
 </ul>
 </div>
-<div class="section" id="id15">
-<h3>Bugfixes<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>Bugfixes<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>UIBarButtonItem text and font changes don&#8217;t override application wide settings.</li>
 </ul>

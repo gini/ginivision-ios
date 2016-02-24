@@ -77,15 +77,15 @@ results of the image capturing. The results of the image capturing process are g
 the ``GiniVisionDelegate``. Therefore, you need to pass an object that implements this delegate to
 the image capture call (see the method call in the example above).
 
-``didScan:(UIImage *) documentType:(GINIDocumentType) uploadDelegate:(id<GINIUploadDelegate>)``
------------------------------------------------------------------------------------------------
+``didScan:(UIImage *) documentJPEGData:(NSData *) documentType:(GINIDocumentType) uploadDelegate:(id<GINIUploadDelegate>)``
+---------------------------------------------------------------------------------------------------------------------------
 
 Will be called after a document has been captured with the document (cropped and enhanced) as
 argument. The given documentType argument describes the type of the scanned document. The receiver
 should upload the document and inform the given upload delegate so the UI is updated accordingly.
-See below to find out how to use the upload delegate.
+In documentJPEGData the cropped and enhanced document is contained including meta information about the image. This argument will be ``nil`` when ``createJPEGDocumentWithMetaData`` is set to ``false``. Read below to find out which meta information is used.
 
-The first parameter is an UIImage instance containing the scanned document. The second argument is
+The first parameter is a UIImage instance containing the scanned document. The second argument is an NSData instance containing the scanned document as JPEG data and meta information about the image. The third argument is
 an enum that informs you which document type the user scanned. This can either be
 
 * ``GINIDocumentTypeInvoice``: An invoice, usually in the DIN A4 format.
@@ -94,6 +94,8 @@ an enum that informs you which document type the user scanned. This can either b
 
 * ``GINIDocumentTypeIntegratedRemittance``: A document in the A4 format which contains a remittance
   slip.
+
+.. note:: The delegate method ``didScan:documentType:uploadDelegate:`` was deprecated. You should move the method body to ``didScan:documentData:documentType:uploadDelegate:`` and leave the old one empty.
 
 ``(void)didScanOriginal:(UIImage *)``
 -------------------------------------
@@ -109,6 +111,42 @@ whether the user has captured a document or has canceled the document capturing.
 ``(void)didCancelUpload``
 -------------------------
 Called when the user cancels the upload process.
+
+Meta Information Tags
+---------------------
+
+In order to improve our service we would like to receive meta information about the circumstances in which the document was photographed. Therefore we use a subset of all available exif tags.
+
+Only the following exif tags are kept in the jpeg file. No personal, geographical or otherwise sensitive information is stored.
+
+``Make``
+    The manufacturer of the device.
+``LensMake``
+    Should be the same as Make.
+``Model``
+    The model name or model number of the device.
+``LensModel``
+    Like Model but gives more detailed information about the lens used.
+``Software``
+    The software used by the capturing device, this should be some version of iOS ex. "9.1".
+``ISO``
+    The ISO speed of the camera.
+``Exposure Time``
+    Exposure time, given in seconds.
+``Aperture``
+    The lens aperture. The unit is the APEX value.
+``Flash``
+    Status of flash when the image was taken.
+``Compressed Bits Per Pixel``
+    The compression mode used for a compressed image is indicated in unit bits per pixel.
+``Orientation``
+    The image orientation derived from the device orientation.
+``Platform``
+    The name of the os in this case "iOS".
+``OS Version``
+    Should be the same as Software.
+``GiniVision Version``
+    GiniVision SDK version.
 
 .. _gini-vision-upload-delegate:
 

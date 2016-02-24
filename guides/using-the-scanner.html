@@ -91,10 +91,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="">Using the Scanner</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#start-the-image-capture">Start the image capture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#implement-and-use-the-ginivisiondelegate">Implement and use the <tt class="docutils literal"><span class="pre">GiniVisionDelegate</span></tt></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#didscan-uiimage-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate"><tt class="docutils literal"><span class="pre">didScan:(UIImage</span> <span class="pre">*)</span> <span class="pre">documentType:(GINIDocumentType)</span> <span class="pre">uploadDelegate:(id&lt;GINIUploadDelegate&gt;)</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#didscan-uiimage-documentjpegdata-nsdata-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate"><tt class="docutils literal"><span class="pre">didScan:(UIImage</span> <span class="pre">*)</span> <span class="pre">documentJPEGData:(NSData</span> <span class="pre">*)</span> <span class="pre">documentType:(GINIDocumentType)</span> <span class="pre">uploadDelegate:(id&lt;GINIUploadDelegate&gt;)</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#void-didscanoriginal-uiimage"><tt class="docutils literal"><span class="pre">(void)didScanOriginal:(UIImage</span> <span class="pre">*)</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#void-didfinishcapturing-bool"><tt class="docutils literal"><span class="pre">(void)didFinishCapturing:(BOOL)</span></tt></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#void-didcancelupload"><tt class="docutils literal"><span class="pre">(void)didCancelUpload</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meta-information-tags">Meta Information Tags</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">Use the <tt class="docutils literal"><span class="pre">GINIVisionUploadDelegate</span></tt> to upload files and update the UI</a><ul>
@@ -134,38 +135,43 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">0.91.145 (12-02-2016)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#bugfixes">Bugfixes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id2">0.91.139 (27-01-2016)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">0.91.163 (24-02-2016)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#features">Features</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#bugfix">Bugfix</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id3">0.91.99 (2015-10-23)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id4">Bugfix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id2">0.91.145 (12-02-2016)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#bugfixes">Bugfixes</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id5">0.91.97 (2015-10-15)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id3">0.91.139 (27-01-2016)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id4">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id5">Bugfix</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id7">0.91.89 (2015-10-05)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id8">Bugfix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id6">0.91.99 (2015-10-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id7">Bugfix</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id9">0.91.83 (2015-09-11)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id10">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id8">0.91.97 (2015-10-15)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id9">Features</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id11">0.91.74 (2015-08-13)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id12">Bugfixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id10">0.91.89 (2015-10-05)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id11">Bugfix</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id13">0.91.67 (2015-07-24)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id14">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id12">0.91.83 (2015-09-11)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id13">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id14">0.91.74 (2015-08-13)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#id15">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id16">0.91.67 (2015-07-24)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id17">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id18">Bugfixes</a></li>
 </ul>
 </li>
 </ul>
@@ -277,13 +283,13 @@ to implement anything regarding the image capturing. However, you are usually in
 results of the image capturing. The results of the image capturing process are given to your app via
 the <tt class="docutils literal"><span class="pre">GiniVisionDelegate</span></tt>. Therefore, you need to pass an object that implements this delegate to
 the image capture call (see the method call in the example above).</p>
-<div class="section" id="didscan-uiimage-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate">
-<h3><tt class="docutils literal"><span class="pre">didScan:(UIImage</span> <span class="pre">*)</span> <span class="pre">documentType:(GINIDocumentType)</span> <span class="pre">uploadDelegate:(id&lt;GINIUploadDelegate&gt;)</span></tt><a class="headerlink" href="#didscan-uiimage-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="didscan-uiimage-documentjpegdata-nsdata-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate">
+<h3><tt class="docutils literal"><span class="pre">didScan:(UIImage</span> <span class="pre">*)</span> <span class="pre">documentJPEGData:(NSData</span> <span class="pre">*)</span> <span class="pre">documentType:(GINIDocumentType)</span> <span class="pre">uploadDelegate:(id&lt;GINIUploadDelegate&gt;)</span></tt><a class="headerlink" href="#didscan-uiimage-documentjpegdata-nsdata-documenttype-ginidocumenttype-uploaddelegate-id-giniuploaddelegate" title="Permalink to this headline">¶</a></h3>
 <p>Will be called after a document has been captured with the document (cropped and enhanced) as
 argument. The given documentType argument describes the type of the scanned document. The receiver
 should upload the document and inform the given upload delegate so the UI is updated accordingly.
-See below to find out how to use the upload delegate.</p>
-<p>The first parameter is an UIImage instance containing the scanned document. The second argument is
+In documentJPEGData the cropped and enhanced document is contained including meta information about the image. This argument will be <tt class="docutils literal"><span class="pre">nil</span></tt> when <tt class="docutils literal"><span class="pre">createJPEGDocumentWithMetaData</span></tt> is set to <tt class="docutils literal"><span class="pre">false</span></tt>. Read below to find out which meta information is used.</p>
+<p>The first parameter is a UIImage instance containing the scanned document. The second argument is an NSData instance containing the scanned document as JPEG data and meta information about the image. The third argument is
 an enum that informs you which document type the user scanned. This can either be</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">GINIDocumentTypeInvoice</span></tt>: An invoice, usually in the DIN A4 format.</li>
@@ -291,6 +297,10 @@ an enum that informs you which document type the user scanned. This can either b
 <li><tt class="docutils literal"><span class="pre">GINIDocumentTypeIntegratedRemittance</span></tt>: A document in the A4 format which contains a remittance
 slip.</li>
 </ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The delegate method <tt class="docutils literal"><span class="pre">didScan:documentType:uploadDelegate:</span></tt> was deprecated. You should move the method body to <tt class="docutils literal"><span class="pre">didScan:documentData:documentType:uploadDelegate:</span></tt> and leave the old one empty.</p>
+</div>
 </div>
 <div class="section" id="void-didscanoriginal-uiimage">
 <h3><tt class="docutils literal"><span class="pre">(void)didScanOriginal:(UIImage</span> <span class="pre">*)</span></tt><a class="headerlink" href="#void-didscanoriginal-uiimage" title="Permalink to this headline">¶</a></h3>
@@ -306,6 +316,41 @@ whether the user has captured a document or has canceled the document capturing.
 <div class="section" id="void-didcancelupload">
 <h3><tt class="docutils literal"><span class="pre">(void)didCancelUpload</span></tt><a class="headerlink" href="#void-didcancelupload" title="Permalink to this headline">¶</a></h3>
 <p>Called when the user cancels the upload process.</p>
+</div>
+<div class="section" id="meta-information-tags">
+<h3>Meta Information Tags<a class="headerlink" href="#meta-information-tags" title="Permalink to this headline">¶</a></h3>
+<p>In order to improve our service we would like to receive meta information about the circumstances in which the document was photographed. Therefore we use a subset of all available exif tags.</p>
+<p>Only the following exif tags are kept in the jpeg file. No personal, geographical or otherwise sensitive information is stored.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">Make</span></tt></dt>
+<dd>The manufacturer of the device.</dd>
+<dt><tt class="docutils literal"><span class="pre">LensMake</span></tt></dt>
+<dd>Should be the same as Make.</dd>
+<dt><tt class="docutils literal"><span class="pre">Model</span></tt></dt>
+<dd>The model name or model number of the device.</dd>
+<dt><tt class="docutils literal"><span class="pre">LensModel</span></tt></dt>
+<dd>Like Model but gives more detailed information about the lens used.</dd>
+<dt><tt class="docutils literal"><span class="pre">Software</span></tt></dt>
+<dd>The software used by the capturing device, this should be some version of iOS ex. &#8220;9.1&#8221;.</dd>
+<dt><tt class="docutils literal"><span class="pre">ISO</span></tt></dt>
+<dd>The ISO speed of the camera.</dd>
+<dt><tt class="docutils literal"><span class="pre">Exposure</span> <span class="pre">Time</span></tt></dt>
+<dd>Exposure time, given in seconds.</dd>
+<dt><tt class="docutils literal"><span class="pre">Aperture</span></tt></dt>
+<dd>The lens aperture. The unit is the APEX value.</dd>
+<dt><tt class="docutils literal"><span class="pre">Flash</span></tt></dt>
+<dd>Status of flash when the image was taken.</dd>
+<dt><tt class="docutils literal"><span class="pre">Compressed</span> <span class="pre">Bits</span> <span class="pre">Per</span> <span class="pre">Pixel</span></tt></dt>
+<dd>The compression mode used for a compressed image is indicated in unit bits per pixel.</dd>
+<dt><tt class="docutils literal"><span class="pre">Orientation</span></tt></dt>
+<dd>The image orientation derived from the device orientation.</dd>
+<dt><tt class="docutils literal"><span class="pre">Platform</span></tt></dt>
+<dd>The name of the os in this case &#8220;iOS&#8221;.</dd>
+<dt><tt class="docutils literal"><span class="pre">OS</span> <span class="pre">Version</span></tt></dt>
+<dd>Should be the same as Software.</dd>
+<dt><tt class="docutils literal"><span class="pre">GiniVision</span> <span class="pre">Version</span></tt></dt>
+<dd>GiniVision SDK version.</dd>
+</dl>
 </div>
 </div>
 <div class="section" id="use-the-ginivisionuploaddelegate-to-upload-files-and-update-the-ui">

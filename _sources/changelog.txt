@@ -2,14 +2,27 @@
 Changelog
 =========
 
+0.91.163 (24-02-2016)
+=====================
+
+Features
+--------
+
+- Added optional JPEG with meta information to module output to further improve detection quality of documents.
+
+Bugfix
+------
+
+- User instruction overlay images on camera screen centered to allow differently sized images.
+
 0.91.145 (12-02-2016)
 =====================
 
 Bugfixes
 --------
 
-- Flash animation fixed to cover only the camera preview
-- Black borders removed from the preview image
+- Flash animation fixed to cover only the camera preview.
+- Black borders removed from the preview image.
 
 0.91.139 (27-01-2016)
 =====================
