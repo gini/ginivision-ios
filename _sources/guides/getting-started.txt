@@ -46,12 +46,12 @@ The library consists of three files:
 
 * The ``GiniVision.framework`` containing the library in a binary form.
 * The ``GiniVision.bundle`` containing all UI assets (images, storyboards, etc).
-* The ``opencv2.framework`` containing a build of the third-party OpenCV library in version 3.1.0.
+* The ``opencv3.framework`` containing a build of the third-party OpenCV library in version 3.1.0.1.
 
 It is absolutely necessary that you add all three files. Otherwise the framework and therefore
 your application may crash.
 
-We recommend downloading our build of OpenCV 3.1.0 hosted at `<https://raw.githubusercontent.com/gini/dependencies/master/OpenCV/3.1.0/opencv2.framework.zip>`_. We removed the ARM NEON optimizations from libpng 1.6.19, which caused the ``Undefined symbols for architecture arm64: "_png_init_filter_functions_neon"`` error.
+OpenCV 3.1.0.1 contains iOS specific fixes and solves the ``Undefined symbols for architecture arm64: "_png_init_filter_functions_neon"`` error. You can download it from `<https://github.com/kylefleming/opencv/releases/download/3.1.0-ios-fix/opencv2.framework.zip>`_.
 
 To add the library to your application, simply drag the files from Finder and drop them into your
 application's files (on the left side of XCode). There will appear a popup where you have to select

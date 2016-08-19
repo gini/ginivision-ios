@@ -2,6 +2,14 @@
 Changelog
 =========
 
+0.91.184 (19-08-2016)
+=====================
+
+Features
+--------
+
+- Updated OpenCV to version 3.1.0.1 (fixes iOS arm64 NEON linking error)
+
 0.91.183 (05-08-2016)
 =====================
 
